@@ -1,4 +1,4 @@
-package GUI;
+package edu.gsu.gui;
 
 import java.sql.*;
 import javafx.application.*;

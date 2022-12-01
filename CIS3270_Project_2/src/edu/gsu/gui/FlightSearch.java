@@ -1,4 +1,4 @@
-package GUI;
+package edu.gsu.gui;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

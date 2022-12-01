@@ -1,4 +1,4 @@
-package Data;
+package edu.gsu.data;
 
 import java.util.Scanner;
 

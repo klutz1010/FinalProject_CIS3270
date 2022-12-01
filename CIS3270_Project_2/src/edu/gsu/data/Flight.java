@@ -1,4 +1,4 @@
-package Data;
+package edu.gsu.data;
 
 public class Flight {
 

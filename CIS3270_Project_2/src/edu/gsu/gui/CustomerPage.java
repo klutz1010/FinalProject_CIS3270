@@ -1,6 +1,4 @@
-package GUI;
-
-import javafx.application.Application;
+package edu.gsu.gui;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AlertBox {
+public class CustomerPage {
 	
 	public static void display(String title, String message) {
 		
@@ -18,8 +16,7 @@ public class AlertBox {
 		
 		window.initModality(Modality.APPLICATION_MODAL);
 		
-		window.setTitle(title);
-		window.setMinWidth(200);
+		window.setTitle("Customer Main Page");
 		
 		Label label1 = new Label();
 		label1.setText(message);
@@ -30,12 +27,14 @@ public class AlertBox {
 		layout1.getChildren().addAll(label1, closeButton);
 		layout1.setAlignment(Pos.CENTER);
 		
-		Scene scene1 = new Scene(layout1);
+		Scene scene1 = new Scene(layout1, 400, 300);
 		window.setScene(scene1);
 		window.showAndWait();
 		
+
 		
 	}
+
 
 
 }

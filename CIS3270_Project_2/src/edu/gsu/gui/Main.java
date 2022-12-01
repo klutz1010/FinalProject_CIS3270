@@ -1,4 +1,4 @@
-package GUI;
+package edu.gsu.gui;
 	
 import application.ConfirmBox;
 import javafx.application.Application;
