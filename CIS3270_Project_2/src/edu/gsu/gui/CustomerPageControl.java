@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LoginControl implements Initializable {
+public class CustomerPageControl implements Initializable {
 	
 	
 	@FXML

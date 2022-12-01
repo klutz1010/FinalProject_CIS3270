@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.Controller">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.Main">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -54,7 +54,7 @@
                </font>
             </Label>
             <TextField fx:id="tf_password" layoutX="150.0" layoutY="219.0" prefHeight="25.0" prefWidth="200.0" />
-            <Button fx:id="button_login" layoutX="280.0" layoutY="261.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Login">
+            <Button fx:id="button_login" layoutX="280.0" layoutY="261.0" mnemonicParsing="false" onAction="#loginUser" style="-fx-cursor: hand;" text="Login">
                <font>
                   <Font size="18.0" />
                </font>
@@ -64,7 +64,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="button_signup" layoutX="286.0" layoutY="322.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Sign Up" />
+            <Button fx:id="button_signup" layoutX="286.0" layoutY="322.0" mnemonicParsing="false" onAction="#signUp" style="-fx-cursor: hand;" text="Sign Up" />
          </children>
       </AnchorPane>
    </children>

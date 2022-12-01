@@ -10,7 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class Controller implements Initializable{
+public class MainControl implements Initializable{
 	
 	
 	@FXML
