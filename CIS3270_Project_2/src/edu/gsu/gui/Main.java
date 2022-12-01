@@ -1,5 +1,7 @@
 package edu.gsu.gui;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.*;
 import javafx.scene.Parent;
@@ -10,6 +12,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
+	Stage stg;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
@@ -25,6 +28,15 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		
 		launch(args);
+		
+	}
+	
+
+	public void changeScene(String fxml) throws IOException {
+		
+		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+		stg.getScene().setRoot(pane);
+		
 		
 	}
 	

@@ -7,9 +7,11 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -50,10 +52,9 @@ public class Register implements Initializable{
 	private Button button_signup;
 	@FXML
 	private Button button_mainpage;
-	
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(URL location, ResourceBundle resources) {
 		
 		button_signup.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -84,7 +85,7 @@ public class Register implements Initializable{
 			@Override
 			public void handle(ActionEvent event) {
 
-				DBUtils.changeScene(event, "Login.fxml", "Welcome", null);
+				DBUtils.changeScene(event, "Main.fxml", "Welcome", null);
 				
 			}
 			
