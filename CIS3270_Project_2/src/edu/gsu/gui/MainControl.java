@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.DBUtils;
+import edu.gsu.db.CustomerData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,9 +33,10 @@ public class MainControl implements Initializable{
 		button_login.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				if ()
 				
-			}
+				DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
+					
+				}
 
 		});
 				
