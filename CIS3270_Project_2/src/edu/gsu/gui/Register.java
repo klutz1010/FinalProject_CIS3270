@@ -3,6 +3,7 @@ package edu.gsu.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.DBUtils;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
@@ -56,6 +58,7 @@ public class Register implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+
 		button_signup.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override

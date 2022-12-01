@@ -3,6 +3,7 @@ package edu.gsu.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.DBUtils;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

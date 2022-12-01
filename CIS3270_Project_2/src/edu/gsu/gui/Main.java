@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	
@@ -18,7 +19,6 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception{
 		
 		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-		
 		primaryStage.setTitle("Flight Reservation System");
 		primaryStage.setScene(new Scene(root, 600, 400));
 		primaryStage.show();
@@ -31,12 +31,10 @@ public class Main extends Application {
 		
 	}
 	
-
 	public void changeScene(String fxml) throws IOException {
 		
 		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
 		stg.getScene().setRoot(pane);
-		
 		
 	}
 	
