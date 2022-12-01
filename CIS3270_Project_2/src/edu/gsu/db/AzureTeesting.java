@@ -1,4 +1,4 @@
-package edu.gsu.gui;
+package edu.gsu.db;
 
 import java.util.Scanner;
 
