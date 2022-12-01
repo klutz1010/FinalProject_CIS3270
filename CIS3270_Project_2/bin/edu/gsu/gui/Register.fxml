@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.Register">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -28,7 +27,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_userName" layoutX="212.0" layoutY="106.0" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="tf_username" layoutX="212.0" layoutY="106.0" prefHeight="25.0" prefWidth="295.0" />
             <Label layoutX="86.0" layoutY="139.0" text="Password">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -40,13 +39,13 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_firstName" layoutX="212.0" layoutY="180.0" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="tf_firstname" layoutX="212.0" layoutY="180.0" prefHeight="25.0" prefWidth="295.0" />
             <Label layoutX="80.0" layoutY="210.0" text="Last Name">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_lastName" layoutX="212.0" layoutY="215.0" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="tf_lastname" layoutX="212.0" layoutY="215.0" prefHeight="25.0" prefWidth="295.0" />
             <Label layoutX="110.0" layoutY="245.0" text="Address">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -84,22 +83,22 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_zipCode" layoutX="212.0" layoutY="320.0" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="tf_zipcode" layoutX="212.0" layoutY="320.0" prefHeight="25.0" prefWidth="295.0" />
             <Label layoutX="41.0" layoutY="368.0" text="Email Address">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_emailAddress" layoutX="212.0" layoutY="373.0" prefHeight="25.0" prefWidth="295.0" />
-            <TextField fx:id="tf_socialSecurity" layoutX="212.0" layoutY="411.0" prefHeight="25.0" prefWidth="295.0" />
-            <TextField fx:id="tf_securityQuestion" layoutX="212.0" layoutY="444.0" prefHeight="25.0" prefWidth="295.0" />
-            <TextField fx:id="tf_securityAnswer" layoutX="212.0" layoutY="477.0" prefHeight="25.0" prefWidth="295.0" />
-            <Button fx:id="button_signUp" layoutX="342.0" layoutY="509.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Sign Up">
+            <TextField fx:id="tf_emailaddress" layoutX="212.0" layoutY="373.0" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="tf_socialsecurity" layoutX="212.0" layoutY="411.0" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="tf_securityquestion" layoutX="212.0" layoutY="444.0" prefHeight="25.0" prefWidth="295.0" />
+            <TextField fx:id="tf_securityanswer" layoutX="212.0" layoutY="477.0" prefHeight="25.0" prefWidth="295.0" />
+            <Button fx:id="button_signup" layoutX="342.0" layoutY="509.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" text="Sign Up">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="button_mainPage" layoutX="183.0" layoutY="548.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back to Main Page" textFill="#005eff" underline="true" />
+            <Button fx:id="button_mainpage" layoutX="183.0" layoutY="548.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back to Main Page" textFill="#005eff" underline="true" />
             <Label layoutX="14.0" layoutY="548.0" text="Already a member?">
                <font>
                   <Font size="18.0" />

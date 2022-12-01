@@ -1,6 +1,5 @@
 package edu.gsu.gui;
 
-import edu.gsu.gui.LoginControl;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -200,7 +199,7 @@ public class DBUtils {
 			e.printStackTrace();
 			
 		} finally {
-			//closing resultset
+			//closing result set
 			if (resultSet != null) {
 				try {
 					resultSet.close();

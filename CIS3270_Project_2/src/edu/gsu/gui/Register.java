@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -57,13 +58,19 @@ public class Register implements Initializable{
 		button_signup.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
-			public void handle(ActionEvent arg0) {
+			public void handle(ActionEvent event) {
 			
 				
 				if (!tf_username.getText().trim().isEmpty() && ! tf_password.getText().trim().isEmpty()) {
 					
 					DBUtils.signUp(event, tf_username.getText(), tf_password.getText());
 					
+				}else {
+					
+					System.out.println("Please Fill in all info");
+					Alert alert = new Alert(Alert.AlertType.ERROR);
+					alert.setContentText("Please fill in all info to sign up.");
+					alert.show();
 				}
 				
 				
@@ -71,6 +78,21 @@ public class Register implements Initializable{
 			
 			
 		});
+		
+		button_mainpage.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+
+				DBUtils.changeScene(event, "Login.fxml", "Welcome", null);
+				
+			}
+			
+			
+			
+		});
+		
+		
 		
 	}
 
