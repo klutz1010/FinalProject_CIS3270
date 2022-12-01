@@ -1,5 +1,5 @@
 package edu.gsu.common;
 
-public class User {
+public class Customer {
 
 }
