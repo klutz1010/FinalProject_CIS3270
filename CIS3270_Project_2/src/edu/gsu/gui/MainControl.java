@@ -37,7 +37,7 @@ public class MainControl implements Initializable{
 		button_signup.setOnAction(new EventHandler<ActionEvent>() {
 			
 			public void handle(ActionEvent event) {
-				DBUtils.signUp(event, "Register.fxml", "Registration");
+				DBUtils.changeScene(event, "Register.fxml", "Registration", null);
 				
 			}
 			
