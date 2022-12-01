@@ -3,6 +3,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1">
+			fx:controller="edu.gsu.gui.Main"
 	<!-- TODO Add Nodes -->
 </AnchorPane>
 
