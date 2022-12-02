@@ -33,15 +33,15 @@ public class MainControl implements Initializable{
 		button_login.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				
-				DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
+				//DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
+				DBUtils.changeScene(event, "CustomerPage.fxml", "Welcome!", null);
 					
 				}
 
 		});
 				
 		button_signup.setOnAction(new EventHandler<ActionEvent>() {
-			
+			@Override
 			public void handle(ActionEvent event) {
 				DBUtils.changeScene(event, "Register.fxml", "Registration", null);
 				

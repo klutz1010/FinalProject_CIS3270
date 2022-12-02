@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.Register">
+<HBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.Register">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="320.0" fitWidth="200.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="192.0" fitWidth="329.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@travel.png" />
                </image>

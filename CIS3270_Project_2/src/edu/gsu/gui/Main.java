@@ -20,7 +20,7 @@ public class Main extends Application {
 		
 		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 		primaryStage.setTitle("Flight Reservation System");
-		primaryStage.setScene(new Scene(root, 600, 400));
+		primaryStage.setScene(new Scene(root, 800, 600));
 		primaryStage.show();
 		
 	}
@@ -31,11 +31,5 @@ public class Main extends Application {
 		
 	}
 	
-	public void changeScene(String fxml) throws IOException {
-		
-		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-		stg.getScene().setRoot(pane);
-		
-	}
 	
 }
