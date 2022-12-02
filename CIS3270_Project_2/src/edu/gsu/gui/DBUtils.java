@@ -85,8 +85,7 @@ public class DBUtils {
 				
 			} else {
 				//if there's a username, registering user (inserting data into database)
-				psInsert = connection.prepareStatement("INSERT INTO CustomerData (userName, userPassword, firstName, lastName, address,"
-						+ "state, zip, emailAddress, ssn, securityAnswer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				psInsert = connection.prepareStatement("INSERT INTO CustomerData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				psInsert.setString(1, username);
 				psInsert.setString(2, password);
 				psInsert.setString(3, firstname);

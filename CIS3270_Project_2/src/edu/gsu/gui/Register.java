@@ -74,7 +74,10 @@ public class Register implements Initializable{
 						
 						) {
 					
-					DBUtils.signUp(event, tf_username.getText(), tf_password.getText());
+					DBUtils.signUp(event, tf_username.getText(), tf_password.getText(), tf_firstname.getText(), tf_lastname.getText(),
+											tf_address.getText(), tf_state.getText(), tf_zipcode.getText(), tf_emailaddress.getText(),
+											tf_socialsecurity.getText(), tf_securityanswer.getText()
+							);
 					
 				}else {
 					//if the info is not all filled out. show alert.
