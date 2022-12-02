@@ -5,16 +5,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.CustomerPageControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.CustomerPageControl">
    <children>
-      <Label fx:id="label_welcome" layoutX="144.0" layoutY="36.0" text="Welcome, Traveler !" textAlignment="CENTER">
+      <Label fx:id="label_welcome" layoutX="175.0" layoutY="39.0" text="Welcome, Traveler !" textAlignment="CENTER">
          <font>
-            <Font size="36.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Button fx:id="button_searchflight" layoutX="248.0" layoutY="139.0" mnemonicParsing="false" text="Search Flight" />
-      <Button fx:id="button_cancelflight" layoutX="248.0" layoutY="212.0" mnemonicParsing="false" text="Cancel Flight" />
-      <Button fx:id="button_yourflight" layoutX="253.0" layoutY="175.0" mnemonicParsing="false" text="Your Flight" />
-      <Button fx:id="button_logout" layoutX="261.0" layoutY="315.0" mnemonicParsing="false" text="Log Out" />
+      <Button fx:id="button_searchflight" layoutX="358.0" layoutY="134.0" mnemonicParsing="false" text="Search Flight" />
+      <Button fx:id="button_cancelflight" layoutX="359.0" layoutY="229.0" mnemonicParsing="false" text="Cancel Flight" />
+      <Button fx:id="button_yourflight" layoutX="363.0" layoutY="179.0" mnemonicParsing="false" text="Your Flight" />
+      <Button fx:id="button_logout" layoutX="706.0" layoutY="549.0" mnemonicParsing="false" text="Log Out" />
    </children>
 </AnchorPane>

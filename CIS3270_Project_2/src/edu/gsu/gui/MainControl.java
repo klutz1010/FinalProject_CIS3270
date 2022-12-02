@@ -34,7 +34,7 @@ public class MainControl implements Initializable{
 			@Override
 			public void handle(ActionEvent event) {
 				//DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
-				DBUtils.changeScene(event, "CustomerPage.fxml", "Welcome!", null);
+				DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
 					
 				}
 

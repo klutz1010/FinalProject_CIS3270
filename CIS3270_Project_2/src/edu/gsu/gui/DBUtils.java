@@ -27,8 +27,8 @@ public class DBUtils {
 				
 				FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
 				root = loader.load();
-				CustomerPageControl LoginControl =loader.getController();
-				LoginControl.setUserInformation(userName);
+				CustomerPageControl CustomerPageControl =loader.getController();
+				CustomerPageControl.setUserInformation(userName);
 				
 			} catch (IOException e) {
 				
@@ -165,7 +165,7 @@ public class DBUtils {
 					+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
 					+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 			
-			preparedStatement = connection.prepareStatement("SELECT userPassword FROM CustomerData WHERE userName = ?");
+			preparedStatement = connection.prepareStatement("SELECT userPassword FROM CustomerData WHERE userName = ? ");
 			preparedStatement.setString(1, username);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -173,25 +173,25 @@ public class DBUtils {
 				
 				System.out.println("User not found in the databse.");
 				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("Provided credntials are incorrect.");
+				alert.setContentText("Your User Name CANNOT be found in our Database.");
 				alert.show();
 				
 			} else {
 				//comparing password
 				while(resultSet.next()) {
+					//getting password form the resultset
 					String retrievedPassword = resultSet.getString("userPassword"); 
-					// if password is correct
+					// if password is correct, change the scene.
 					if (retrievedPassword.equals(password)) {
 						
-						changeScene(event, "CustomerPage.fxml", "Welcome!", username);
-					// if password is incorrect
+							changeScene(event, "customerpage.fxml", "Welcome", null);
+
+					// if password is incorrect show alert.
 					} else {
-						
 						System.out.println("The password did not match!");
 						Alert alert = new Alert(Alert.AlertType.ERROR);
 						alert.setContentText("the provided credentials are incorrect");
 						alert.show();
-						
 					}
 				}
 			}

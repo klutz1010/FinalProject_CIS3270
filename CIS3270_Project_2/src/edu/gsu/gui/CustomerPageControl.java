@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 
 public class CustomerPageControl implements Initializable {
 	
-	
 	@FXML
 	private Label label_welcome;
 	
@@ -35,7 +34,7 @@ public class CustomerPageControl implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				DBUtils.changeScene(event, "login.fxml", "Login", null);
+				DBUtils.changeScene(event, "Main.fxml", "Login", null);
 				
 				
 			}

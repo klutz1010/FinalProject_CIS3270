@@ -8,12 +8,12 @@ import java.sql.SQLException;
 
 public class CustomerData {
 	
-	public boolean pass(String user, String pass) throws SQLException, ClassNotFoundException {
+	public boolean pass(String userName, String userPassword) throws SQLException, ClassNotFoundException {
 		
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
-		String sql = "select * from customer where userName = ? and userPassword = ? ";
+		String sql = "select * from customerData where userName = ? and userPassword = ? ";
 		
 			try {
 				
@@ -23,8 +23,8 @@ public class CustomerData {
 							+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		    
 		    myStmt = myConn.prepareStatement(sql);
-		    myStmt.setString(1, user);
-		    myStmt.setString(2, pass);
+		    myStmt.setString(1, userName);
+		    myStmt.setString(2, userPassword);
 		    myRs = myStmt.executeQuery();
 		    
 		    if (myRs.next()) {
@@ -44,11 +44,4 @@ public class CustomerData {
 			return false;
 	}
 	
-	public static void main(String[] args) {
-		
-		
-		
-		
-	}
-
 }
