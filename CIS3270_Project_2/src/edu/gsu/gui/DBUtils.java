@@ -57,7 +57,9 @@ public class DBUtils {
 		
 	}
 	
-	public static void signUp(ActionEvent event, String username, String password) {
+	public static void signUp(ActionEvent event, String username, String password, String firstname,
+												String lastname, String address, String state, String zip,
+												String emailaddress, String socialsecurity, String securityanswer) {
 		
 		Connection connection = null;
 		PreparedStatement psInsert = null;
@@ -83,9 +85,18 @@ public class DBUtils {
 				
 			} else {
 				//if there's a username, registering user (inserting data into database)
-				psInsert = connection.prepareStatement("INSERT INTO CustomerData (userName, userPassword, VALUES (?, ?)");
+				psInsert = connection.prepareStatement("INSERT INTO CustomerData (userName, userPassword, firstName, lastName, address,"
+						+ "state, zip, emailAddress, ssn, securityAnswer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				psInsert.setString(1, username);
 				psInsert.setString(2, password);
+				psInsert.setString(3, firstname);
+				psInsert.setString(4, lastname);
+				psInsert.setString(5, address);
+				psInsert.setString(6, state);
+				psInsert.setString(7, zip);
+				psInsert.setString(8, emailaddress);
+				psInsert.setString(9, socialsecurity);
+				psInsert.setString(10, securityanswer);
 				psInsert.executeUpdate();
 				
 				

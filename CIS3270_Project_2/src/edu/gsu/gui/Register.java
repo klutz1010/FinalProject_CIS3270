@@ -35,9 +35,11 @@ public class Register implements Initializable{
 	@FXML
 	private TextField tf_password;
 	@FXML
-	private TextField tf_firstName;
+	private TextField tf_firstname;
 	@FXML
 	private TextField tf_lastname;
+	@FXML
+	private TextField tf_address;
 	@FXML
 	private TextField tf_state;
 	@FXML
@@ -46,8 +48,6 @@ public class Register implements Initializable{
 	private TextField tf_emailaddress;
 	@FXML
 	private TextField tf_socialsecurity;
-	@FXML
-	private TextField tf_securityquestion;
 	@FXML
 	private TextField tf_securityanswer;
 	@FXML
@@ -65,12 +65,19 @@ public class Register implements Initializable{
 			public void handle(ActionEvent event) {
 			
 				
-				if (!tf_username.getText().trim().isEmpty() && ! tf_password.getText().trim().isEmpty()) {
+				if (
+						!tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty() &&
+						!tf_firstname.getText().trim().isEmpty() && !tf_lastname.getText().trim().isEmpty() &&
+						!tf_address.getText().trim().isEmpty() && !tf_state.getText().trim().isEmpty() &&
+						!tf_zipcode.getText().trim().isEmpty() && !tf_emailaddress.getText().trim().isEmpty() &&
+						!tf_socialsecurity.getText().trim().isEmpty() && !tf_securityanswer.getText().trim().isEmpty()
+						
+						) {
 					
 					DBUtils.signUp(event, tf_username.getText(), tf_password.getText());
 					
 				}else {
-					
+					//if the info is not all filled out. show alert.
 					System.out.println("Please Fill in all info");
 					Alert alert = new Alert(Alert.AlertType.ERROR);
 					alert.setContentText("Please fill in all info to sign up.");
@@ -87,9 +94,7 @@ public class Register implements Initializable{
 
 			@Override
 			public void handle(ActionEvent event) {
-
 				DBUtils.changeScene(event, "Main.fxml", "Welcome", null);
-				
 			}
 			
 			
