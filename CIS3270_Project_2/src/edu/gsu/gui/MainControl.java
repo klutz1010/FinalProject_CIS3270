@@ -20,6 +20,8 @@ public class MainControl implements Initializable{
 	private Button button_login;
 	@FXML
 	private Button button_signup;
+	@FXML
+	private Button button_resetpwassword;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -28,7 +30,7 @@ public class MainControl implements Initializable{
 			@Override
 			public void handle(ActionEvent event) {
 				//DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
-				DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
+				Action.loginUser(event, tf_username.getText(), tf_password.getText());
 					
 				}
 
@@ -37,13 +39,20 @@ public class MainControl implements Initializable{
 		button_signup.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				DBUtils.changeScene(event, "Register.fxml", "Registration", null);
+				Action.changeScene(event, "Register.fxml", "Registration", null);
 				
 			}
 			
 		});
 				
-	
+		button_resetpwassword.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Action.changeScene(event, "Register.fxml", "Reset Your Password", null);
+				
+			}
+			
+		});
 		
 		
 	}

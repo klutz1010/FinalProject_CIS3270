@@ -57,7 +57,7 @@ public class Register implements Initializable{
 						
 						) {
 					
-					DBUtils.signUp(event, tf_username.getText(), tf_password.getText(), tf_firstname.getText(), tf_lastname.getText(),
+					Action.signUp(event, tf_username.getText(), tf_password.getText(), tf_firstname.getText(), tf_lastname.getText(),
 											tf_address.getText(), tf_state.getText(), tf_zipcode.getText(), tf_emailaddress.getText(),
 											tf_socialsecurity.getText(), tf_securityanswer.getText()
 							);
@@ -80,7 +80,7 @@ public class Register implements Initializable{
 
 			@Override
 			public void handle(ActionEvent event) {
-				DBUtils.changeScene(event, "Main.fxml", "Welcome", null);
+				Action.changeScene(event, "Main.fxml", "Welcome", null);
 			}
 			
 			

@@ -25,7 +25,7 @@ public class CustomerPageControl implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				DBUtils.changeScene(event, "Main.fxml", "Login", null);
+				Action.changeScene(event, "Main.fxml", "Login", null);
 				
 			}
 			

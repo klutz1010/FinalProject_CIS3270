@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
-public class DBUtils {
+public class Action {
 	
 	public static void changeScene(ActionEvent event, String fxmlFile, String title, String userName) {
 		
@@ -25,7 +25,7 @@ public class DBUtils {
 			
 			try {
 				
-				FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
+				FXMLLoader loader = new FXMLLoader(Action.class.getResource(fxmlFile));
 				root = loader.load();
 				CustomerPageControl CustomerPageControl =loader.getController();
 				CustomerPageControl.setUserInformation(userName);
@@ -40,7 +40,7 @@ public class DBUtils {
 			
 			try {
 				
-				root = FXMLLoader.load(DBUtils.class.getResource(fxmlFile));
+				root = FXMLLoader.load(Action.class.getResource(fxmlFile));
 				
 			} catch (IOException e) {
 				
