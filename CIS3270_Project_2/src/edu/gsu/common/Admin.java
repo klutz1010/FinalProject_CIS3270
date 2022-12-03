@@ -1,6 +1,8 @@
 package edu.gsu.common;
 
-public class Admin {
-  //S.H. comment
+public class Admin extends Customer{
+	
+	private boolean isAdmin;
+  
   
 }
