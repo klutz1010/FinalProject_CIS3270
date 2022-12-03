@@ -18,12 +18,9 @@ import javafx.stage.Stage;
 public class CustomerPageControl implements Initializable {
 	
 	@FXML
-	private Label label_welcome;
+	private Label label_hello;
 	
 	@FXML
-	private Button button_searchflight;
-	private Button button_yourflight;
-	private Button button_cancelflight;
 	private Button button_logout;
 	
 
@@ -45,13 +42,11 @@ public class CustomerPageControl implements Initializable {
 		
 		
 	}
-	
+
 	public void setUserInformation(String userName) {
-		
-		label_welcome.setText(("Welcome" + userName + " !"));
 			
-		
-	}
-
-
+			label_hello.setText(("Welcome" + userName + " !"));
+				
+		}
+	
 }

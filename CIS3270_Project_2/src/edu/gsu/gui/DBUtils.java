@@ -194,7 +194,7 @@ public class DBUtils {
 					// if password is correct, change the scene.
 					if (retrievedPassword.equals(password)) {
 						
-							changeScene(event, "customerpage.fxml", "Welcome", null);
+							changeScene(event, "CustomerPage.fxml", "Welcome", null);
 
 					// if password is incorrect show alert.
 					} else {
