@@ -98,7 +98,6 @@ public class DBUtils {
 				psInsert.setString(10, securityanswer);
 				psInsert.executeUpdate();
 				
-				
 				changeScene(event, "CustomerPage", "Welcome", username);
 				
 			}
