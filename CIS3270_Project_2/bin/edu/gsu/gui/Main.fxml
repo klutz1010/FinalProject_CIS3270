@@ -77,6 +77,11 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
+                  <Button fx:id="button_adminlogin" layoutX="394.0" layoutY="576.0" mnemonicParsing="false" opacity="0.51" prefHeight="19.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Admin Login">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

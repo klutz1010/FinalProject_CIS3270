@@ -5,9 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javafx.event.ActionEvent;
 
-public class Admin {
+import edu.gsu.gui.Action;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+
+public class Admin extends Customer{
 	
 	private String adminID;
 	private String adminPassowrd;
@@ -24,6 +27,83 @@ public class Admin {
 	public void setAdminPassowrd(String adminPassowrd) {
 		this.adminPassowrd = adminPassowrd;
 	}
+	
+	//Admin Login, can be logged into Adminpage instead of Customer Page
+	public static void adminLogin(ActionEvent event, String userName, String userPassword) {
+		
+		Connection adminConn = null;
+		PreparedStatement adminPS = null;
+		ResultSet adminRS = null;
+		
+		try {
+			adminConn = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
+					+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
+					+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+			
+			adminPS = adminConn.prepareStatement("SELECT userPassword FROM CustomerData WHERE userName = ? ");
+			adminPS.setString(1, userName);
+			adminRS = adminPS.executeQuery();
+			
+			if (!adminRS.isBeforeFirst()) {
+				
+				System.out.println("User not found in the databse.");
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setContentText("Your User Name CANNOT be found in our Database.");
+				alert.show();
+				
+			} else {
+				//comparing password
+				while(adminRS.next()) {
+					//getting password form the resultset
+					String retrievedPassword = adminRS.getString("userPassword"); 
+					// if password is correct, change the scene.
+					if (retrievedPassword.equals(userPassword)) {
+						
+							Action.changeScene(event, "AdminPage.fxml", "Welcome", null);
+
+					// if password is incorrect show alert.
+					} else {
+						System.out.println("The password did not match!");
+						Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setContentText("the provided credentials are incorrect");
+						alert.show();
+					}
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			//closing result set
+			if (adminRS != null) {
+				try {
+					adminRS.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			//closing prepared statement	
+			if (adminPS != null) {
+				try {
+					adminPS.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+			}
+			//closing connection
+			if (adminConn != null) {
+				try {
+					adminConn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+		
+	}
+		
 	//giving Admin a power, adding a new Flight Data
 	public static void addFlightData(ActionEvent event, String airlineName, String flightNumber, String originCity, String destinationCity,
 										String departureDate, String departureTime, String arrivalDate, String arrivalTime,

@@ -188,6 +188,7 @@ public class Action {
 				alert.setContentText("Your User Name CANNOT be found in our Database.");
 				alert.show();
 				
+				
 			} else {
 				//comparing password
 				while(resultSet.next()) {

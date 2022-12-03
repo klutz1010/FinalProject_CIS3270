@@ -2,6 +2,8 @@ package edu.gsu.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import edu.gsu.common.Admin;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +20,8 @@ public class MainControl implements Initializable{
 	@FXML
 	private Button button_login;
 	@FXML
+	private Button button_adminlogin;
+	@FXML
 	private Button button_signup;
 	@FXML
 	private Button button_resetpassword;
@@ -30,6 +34,16 @@ public class MainControl implements Initializable{
 			public void handle(ActionEvent event) {
 
 				Action.loginUser(event, tf_username.getText(), tf_password.getText());
+					
+				}
+
+		});
+		
+		button_adminlogin.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+
+				Admin.adminLogin(event, tf_username.getText(), tf_password.getText());
 					
 				}
 
