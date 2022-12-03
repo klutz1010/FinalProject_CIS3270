@@ -57,9 +57,9 @@ public class DBUtils {
 		
 	}
 	
-	public static void signUp(ActionEvent event, String username, String password, String firstname,
-												String lastname, String address, String state, String zip,
-												String emailaddress, String socialsecurity, String securityanswer) {
+	public static void signUp(ActionEvent event, String userName, String userPassword, String firstName,
+												String lastName, String address, String state, String zip,
+												String emailAddress, String ssn, String securityAnswer) {
 		
 		Connection connection = null;
 		PreparedStatement psInsert = null;
@@ -73,7 +73,7 @@ public class DBUtils {
 			
 			//to check if the user name is in the database or not.
 			psCheckUsersExist = connection.prepareStatement("SELECT * FROM CustomerData WHERE userName = ?");
-			psCheckUsersExist.setString(1, username);
+			psCheckUsersExist.setString(1, userName);
 			resultSet = psCheckUsersExist.executeQuery();
 			
 			if (resultSet.isBeforeFirst()) {
@@ -85,20 +85,23 @@ public class DBUtils {
 				
 			} else {
 				//registering user (inserting data into database)
-				psInsert = connection.prepareStatement("INSERT INTO CustomerData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-				psInsert.setString(1, username);
-				psInsert.setString(2, password);
-				psInsert.setString(3, firstname);
-				psInsert.setString(4, lastname);
+				psInsert = connection.prepareStatement("INSERT INTO CustomerData "
+						+ "(userName, userPassword, firstName, lastName, address, state, zip, emailAddress, ssn, securityAnswer)"
+						+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				
+				psInsert.setString(1, userName);
+				psInsert.setString(2, userPassword);
+				psInsert.setString(3, firstName);
+				psInsert.setString(4, lastName);
 				psInsert.setString(5, address);
 				psInsert.setString(6, state);
 				psInsert.setString(7, zip);
-				psInsert.setString(8, emailaddress);
-				psInsert.setString(9, socialsecurity);
-				psInsert.setString(10, securityanswer);
+				psInsert.setString(8, emailAddress);
+				psInsert.setString(9, ssn);
+				psInsert.setString(10, securityAnswer);
 				psInsert.executeUpdate();
 				
-				changeScene(event, "CustomerPage", "Welcome", username);
+				changeScene(event, "CustomerPage.FXML", "Welcome ", userName + "!");
 				
 			}
 			
