@@ -11,7 +11,6 @@ import javafx.scene.control.TextField;
 
 public class MainControl implements Initializable{
 	
-	
 	@FXML
 	private TextField tf_username;
 	@FXML
@@ -29,7 +28,7 @@ public class MainControl implements Initializable{
 		button_login.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				//DBUtils.loginUser(event, tf_username.getText(), tf_password.getText());
+
 				Action.loginUser(event, tf_username.getText(), tf_password.getText());
 					
 				}
