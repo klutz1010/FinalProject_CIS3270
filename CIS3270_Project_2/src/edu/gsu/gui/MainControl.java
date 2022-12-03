@@ -21,7 +21,7 @@ public class MainControl implements Initializable{
 	@FXML
 	private Button button_signup;
 	@FXML
-	private Button button_resetpwassword;
+	private Button button_resetpassword;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -45,10 +45,10 @@ public class MainControl implements Initializable{
 			
 		});
 				
-		button_resetpwassword.setOnAction(new EventHandler<ActionEvent>() {
+		button_resetpassword.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				Action.changeScene(event, "Register.fxml", "Reset Your Password", null);
+				Action.changeScene(event, "ForgotPassword.fxml", "Reset Your Password", null);
 				
 			}
 			
