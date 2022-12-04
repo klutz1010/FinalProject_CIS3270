@@ -2,6 +2,7 @@ package edu.gsu.common;
 
 public class Flight {
 	
+	private int id;
 	private String airlineName;
 	private String flightNumber;
 	private String originCity;
@@ -14,10 +15,11 @@ public class Flight {
 	private int seatsAvailable;
 	private int isFull;
 	
-	public Flight(String airlineName, String flightNumber, String originCity, String destinationCity,
+	public Flight(int id, String airlineName, String flightNumber, String originCity, String destinationCity,
 			String departureDate, String departureTime, String arrivalDate, String arrivalTime, int flightCapacity,
 			int seatsAvailable, int isFull) {
 		
+		this.id = id;
 		this.airlineName = airlineName;
 		this.flightNumber = flightNumber;
 		this.originCity = originCity;
@@ -32,6 +34,16 @@ public class Flight {
 		
 	}
 
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getAirlineName() {
 		return airlineName;
 	}
@@ -119,6 +131,8 @@ public class Flight {
 	public void setIsFull(int isFull) {
 		this.isFull = isFull;
 	}
+
+
 	
 
 		

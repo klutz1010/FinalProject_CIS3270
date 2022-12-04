@@ -198,8 +198,175 @@ public class Admin {
 		}
 		
 	}
+	//Give admin a feature, updating flight data inside the admin page.
+	public static void updateFlightData(ActionEvent event, String airlineName, String flightNumber, String originCity, String destinationCity,
+				String departureDate, String departureTime, String arrivalDate, String arrivalTime,
+				int flightCapacity, int seatsAvailable, int isFull) {
+	
+		Connection updateFlightDataConn = null;
+		PreparedStatement updateFlightDataPs = null;
+		ResultSet updateFlightDataRs = null;
 		
+		try {
+			updateFlightDataConn = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
+								+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
+								+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+			
+
+			updateFlightDataPs = updateFlightDataConn.prepareStatement("UPDATE FlightData "
+						+ "SET airlineName=?, originCity=?, destinationCity=?, departureDate=?, departureTime=?, arrivalDate=?, arrivalTime=?, "
+						+ "flightCapacity=?, seatsAvailable=?, isFull=?"
+						+ "WHERE flightNumber = ?");
+				
+			updateFlightDataPs.setString(1, airlineName);
+			updateFlightDataPs.setString(2, originCity);
+			updateFlightDataPs.setString(3, destinationCity);
+			updateFlightDataPs.setString(4, departureDate);
+			updateFlightDataPs.setString(5, departureTime);
+			updateFlightDataPs.setString(6, arrivalDate);
+			updateFlightDataPs.setString(7, arrivalTime);
+			updateFlightDataPs.setInt(8, flightCapacity);
+			updateFlightDataPs.setInt(9, seatsAvailable);
+			updateFlightDataPs.setInt(10, isFull);
+			updateFlightDataPs.setString(11, flightNumber);
+			updateFlightDataPs.executeUpdate();
+				
+
+			} catch (SQLException e) {
+					
+				e.printStackTrace();
+					
+			} finally {
+				
+				if (updateFlightDataRs != null) {
+					
+					try {
+						updateFlightDataRs.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					
+					
+				}
+				
+				if (updateFlightDataPs != null) {
+					try {
+						
+						updateFlightDataPs.close();
+						
+					} catch (SQLException e) {
+						
+						e.printStackTrace();
+						
+					}
+					
+				}
+				
+				if (updateFlightDataPs != null) {
+					
+					try {
+						updateFlightDataPs.close();
+						
+					} catch (SQLException e) {
+				
+						e.printStackTrace();
+						
+					}
+					
+				if (updateFlightDataConn != null) {
+					
+					try {
+						
+						updateFlightDataConn.close();
+						
+					} catch (SQLException e) {
+						
+						e.printStackTrace();
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+	}
+	//Give admin a feature, deleting flight data inside the admin page.
+	public static void deleteFlightData(ActionEvent event, int id) {
+
+	Connection deleteFlightDataConn = null;
+	PreparedStatement deleteFlightDataPs = null;
+	ResultSet updateFlightDataRs = null;
+	
+	try {
+		deleteFlightDataConn = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
+							+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
+							+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 
+		deleteFlightDataPs = deleteFlightDataConn.prepareStatement("DELETE FROM FlightData WHERE id = ?");
+			
+		deleteFlightDataPs.setInt(1, id);
+		deleteFlightDataPs.executeUpdate();
+			
 
+		} catch (SQLException e) {
+				
+			e.printStackTrace();
+				
+		} finally {
+			
+			if (updateFlightDataRs != null) {
+				
+				try {
+					updateFlightDataRs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				
+			}
+			
+			if (deleteFlightDataPs != null) {
+				try {
+					
+					deleteFlightDataPs.close();
+					
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+					
+				}
+				
+			}
+			
+			if (deleteFlightDataPs != null) {
+				
+				try {
+					deleteFlightDataPs.close();
+					
+				} catch (SQLException e) {
+			
+					e.printStackTrace();
+					
+				}
+				
+			if (deleteFlightDataConn != null) {
+				
+				try {
+					
+					deleteFlightDataConn.close();
+					
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+					
+				}
+				
+			}
+			
+		}
+	}
+	
+}
 }

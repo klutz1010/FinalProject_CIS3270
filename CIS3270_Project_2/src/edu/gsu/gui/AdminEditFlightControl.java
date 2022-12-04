@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+import edu.gsu.common.Admin;
 import edu.gsu.common.Flight;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,14 +24,17 @@ public class AdminEditFlightControl implements Initializable {
 	private Button button_goback;
 	
     @FXML
-    private Button button_add;
+    private Button button_addFlight;
 
     @FXML
-    private Button button_delete;
+    private Button button_deleteFlight;
 
     @FXML
-    private Button button_update;
+    private Button button_updateFlight;
 
+    @FXML
+    private TableColumn<Flight, Integer> col_id;
+    
     @FXML
     private TableColumn<Flight, String> col_airlineName;
 
@@ -67,16 +71,40 @@ public class AdminEditFlightControl implements Initializable {
     private TableView<Flight> table_viewFlight;
 
     @FXML
+    private TextField tf_id;
+    
+    @FXML
     private TextField tf_airlineName;
+
+    @FXML
+    private TextField tf_arrivalDate;
+
+    @FXML
+    private TextField tf_arrivalTime;
+
+    @FXML
+    private TextField tf_departureDate;
+
+    @FXML
+    private TextField tf_departureTime;
 
     @FXML
     private TextField tf_destinationCity;
 
     @FXML
+    private TextField tf_flightCapacity;
+
+    @FXML
     private TextField tf_flightNumber;
 
     @FXML
+    private TextField tf_isFull;
+
+    @FXML
     private TextField tf_originCity;
+
+    @FXML
+    private TextField tf_seatsAvailable;
 
     @FXML
     void Add(ActionEvent event) {
@@ -95,22 +123,62 @@ public class AdminEditFlightControl implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resource) {
-    	
+    	//display table in javafx
     	showFlights();
-    	
+    	//going back to main menu
     	button_goback.setOnAction(new EventHandler<ActionEvent>() {
-
 			@Override
 			public void handle(ActionEvent event) {
 				
 				Action.changeScene(event, "AdminPage.fxml", "Welcome", null);
 				
 			}
-    	
+
     	});
+    	
+    	button_addFlight.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				Admin.addFlightData(event, tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+						tf_destinationCity.getText(), tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
+						tf_arrivalTime.getText(), Integer.parseInt(tf_flightCapacity.getText()), Integer.parseInt(tf_seatsAvailable.getText()),
+						Integer.parseInt(tf_isFull.getText()));
+				
+				showFlights();	
+			}
+    	});
+			
+		button_updateFlight.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				Admin.updateFlightData(event, tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+						tf_destinationCity.getText(), tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
+						tf_arrivalTime.getText(), Integer.parseInt(tf_flightCapacity.getText()), Integer.parseInt(tf_seatsAvailable.getText()),
+						Integer.parseInt(tf_isFull.getText()));
+				
+				showFlights();	
+			}	
+		
+		});
+    
+		button_deleteFlight.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				Admin.deleteFlightData(event, Integer.parseInt(tf_id.getText()));
+				
+				showFlights();	
+			}	
+		
+		});
 
     }
-
+    //making a connection, a public method
     public Connection getConnection() {
     	
     	Connection connection = null;
@@ -125,14 +193,14 @@ public class AdminEditFlightControl implements Initializable {
     	}
 		return connection;
     }
-    	
+    //using OberservableList, to make a collection of data in a list
     public ObservableList<Flight> getFlightList(){
     	
     	ObservableList<Flight> flightList = FXCollections.observableArrayList();
     	
     	Connection connection = getConnection();
     	
-    	String query = "SELECT airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, "
+    	String query = "SELECT id, airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, "
     			+ "arrivalDate, arrivalTime, flightCapacity, seatsAvailable, isFull FROM FlightData";
     	Statement st;
     	ResultSet rs;
@@ -145,7 +213,7 @@ public class AdminEditFlightControl implements Initializable {
     		
     		while(rs.next()) {
     			
-    			flights = new Flight(rs.getString("airlineName"), rs.getString("flightNumber"), rs.getString("originCity"),
+    			flights = new Flight(rs.getInt("id"), rs.getString("airlineName"), rs.getString("flightNumber"), rs.getString("originCity"),
     					rs.getString("destinationCity"), rs.getString("departureDate"), rs.getString("departureTime"),
     					rs.getString("arrivalDate"), rs.getString("arrivalTime"), rs.getInt("flightCapacity"), rs.getInt("seatsAvailable"), rs.getInt("isFull"));
     			
@@ -158,11 +226,12 @@ public class AdminEditFlightControl implements Initializable {
     	
     	return flightList;
     }
-    
+    //a method that puts the data in each column by column's name, and Display flight data on JavaFX table
     public void showFlights() {
     	
     	ObservableList<Flight> list = getFlightList();
     	
+    	col_id.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("id"));
     	col_airlineName.setCellValueFactory(new PropertyValueFactory<Flight, String>("airlineName"));
     	col_flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
     	col_originCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("originCity"));
@@ -178,5 +247,37 @@ public class AdminEditFlightControl implements Initializable {
     	table_viewFlight.setItems(list);
     	
     }
+    
+    private void adminAddFlight() {
+    	
+    	String query = "INSERT INTO FlightData VALUES (" + tf_airlineName.getText() + ", " + tf_flightNumber.getText() + ", " + tf_originCity.getText() + ", " +
+    			tf_destinationCity.getText() + ", " + tf_departureDate.getText() + ", " + tf_departureTime.getText() + ", " + tf_arrivalDate.getText() + ", " +
+    			tf_arrivalTime.getText() + ", " + tf_flightCapacity.getText() + ", " + tf_seatsAvailable.getText() + ", " + tf_isFull.getText() + ")";
+    	
+    	executeQuery(query);
+    	showFlights();
+    	
+    }
+    
+    private void executeQuery(String query) {
+    	
+    	Connection conn = getConnection();
+    	Statement st;
+    	
+    	try {
+    		
+    		st = conn.createStatement();
+    		st.executeUpdate(query);
+    		
+    	} catch (Exception ex) {
+    		
+    		ex.printStackTrace();
+    		
+    	}
+    	
+    	
+    	
+    }
+    
 
 }
