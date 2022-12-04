@@ -13,66 +13,66 @@
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="399.0">
          <children>
-            <ImageView fitHeight="589.0" fitWidth="904.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="592.0" fitWidth="548.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@world.png" />
                </image>
             </ImageView>
             <AnchorPane layoutX="319.0" layoutY="4.0" prefHeight="600.0" prefWidth="480.0" style="-fx-background-color: transparent;">
                <children>
-                  <ImageView fitHeight="76.0" fitWidth="62.0" layoutX="393.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="76.0" fitWidth="62.0" layoutX="393.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@airplane.png" />
                      </image>
                   </ImageView>
-                  <Label contentDisplay="CENTER" layoutX="355.0" layoutY="64.0" text="User Name">
+                  <Label contentDisplay="CENTER" layoutX="355.0" layoutY="49.0" text="User Name">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_username" alignment="CENTER" layoutX="179.0" layoutY="91.0" prefHeight="25.0" prefWidth="274.0" promptText="User Name" />
-                  <Label contentDisplay="CENTER" layoutX="368.0" layoutY="129.0" text="Password">
+                  <TextField fx:id="tf_username" alignment="CENTER" layoutX="179.0" layoutY="76.0" prefHeight="25.0" prefWidth="274.0" promptText="User Name" />
+                  <Label contentDisplay="CENTER" layoutX="368.0" layoutY="101.0" text="Password">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_password" alignment="CENTER" layoutX="179.0" layoutY="156.0" prefHeight="25.0" prefWidth="274.0" promptText="Password" />
-                  <Button fx:id="button_login" layoutX="342.0" layoutY="191.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" style="-fx-cursor: hand;" text="Login">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Label contentDisplay="CENTER" layoutX="275.0" layoutY="270.0" text="Not a user?">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="button_signup" layoutX="348.0" layoutY="260.0" mnemonicParsing="false" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Sign Up" textFill="#f54a4a">
+                  <TextField fx:id="tf_password" alignment="CENTER" layoutX="179.0" layoutY="128.0" prefHeight="25.0" prefWidth="274.0" promptText="Password" />
+                  <Button fx:id="button_login" layoutX="351.0" layoutY="165.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" style="-fx-cursor: hand;" text="Login">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="240.0" layoutY="303.0" text="Forgot Password?">
+                  <Label contentDisplay="CENTER" layoutX="252.0" layoutY="241.0" text="Not a member?">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Button fx:id="button_resetpassword" layoutX="337.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Reset Password" textFill="#636ff7">
+                  <Button fx:id="button_signup" layoutX="349.0" layoutY="231.0" mnemonicParsing="false" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Sign Up" textFill="#f54a4a">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label contentDisplay="CENTER" layoutX="243.0" layoutY="280.0" text="Forgot Password?">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="button_resetpassword" layoutX="339.0" layoutY="277.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Reset Password" textFill="#636ff7">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="484.0" text="CIS 3270">
+                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="460.0" text="CIS 3270">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="308.0" layoutY="519.0" text="Flight Reservation System">
+                  <Label contentDisplay="CENTER" layoutX="307.0" layoutY="495.0" text="Flight Reservation System">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="538.0" text="Hyung Joo">
+                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="514.0" text="Hyung Joo">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -82,6 +82,16 @@
                         <Font size="10.0" />
                      </font>
                   </Button>
+                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="533.0" text="NAME">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="552.0" text="NAME">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>
