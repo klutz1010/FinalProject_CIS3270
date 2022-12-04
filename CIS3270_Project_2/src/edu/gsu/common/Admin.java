@@ -10,7 +10,7 @@ import edu.gsu.gui.Action;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 
-public class Admin extends Customer{
+public class Admin {
 	
 	private String adminID;
 	private String adminPassowrd;

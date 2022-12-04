@@ -3,19 +3,23 @@ package edu.gsu.gui;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-
 import edu.gsu.common.Flight;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AdminEditFlightControl {
+public class AdminEditFlightControl implements Initializable {
+	
+	@FXML
+	private Button button_goback;
 	
     @FXML
     private Button button_add;
@@ -30,14 +34,34 @@ public class AdminEditFlightControl {
     private TableColumn<Flight, String> col_airlineName;
 
     @FXML
+    private TableColumn<Flight, String> col_arrivalDate;
+
+    @FXML
+    private TableColumn<Flight, String> col_arrivalTime;
+
+    @FXML
+    private TableColumn<Flight, String> col_departureDate;
+
+    @FXML
+    private TableColumn<Flight, String> col_departureTime;
+
+    @FXML
     private TableColumn<Flight, String> col_destinationCity;
+
+    @FXML
+    private TableColumn<Flight, Integer> col_flightCapacity;
 
     @FXML
     private TableColumn<Flight, String> col_flightNumber;
 
     @FXML
+    private TableColumn<Flight, Integer> col_isFull;
+
+    @FXML
     private TableColumn<Flight, String> col_originCity;
 
+    @FXML
+    private TableColumn<Flight, Integer> col_seatsAvailable;
     @FXML
     private TableView<Flight> table_viewFlight;
 
@@ -55,14 +79,6 @@ public class AdminEditFlightControl {
 
     @FXML
     void Add(ActionEvent event) {
-    	
-//    	String airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, arrivalDate, arrivalTime;
-//    	int flightCapacity, seatsavilable, isFull;
-//    	
-//    	airlineName = tf_airlineName.getText();
-//    	flightNumber = tf_flightNumber.getText();
-//    	originCity = tf_originCity.getText();
-//    	destinationCity = tf_destinationCity.getText();
     		
     }
 
@@ -75,42 +91,25 @@ public class AdminEditFlightControl {
     void Update(ActionEvent event) {
 
     }
-//    //getting tables
-//    public void table() {
-//    	
-//    	connect();
-//    	ObservableList<Flight> flights = FXCollections.observableArrayList();
-//    	
-//    	try {
-//    		
-//    		tablePS = tableConn.prepareStatement("");
-//    		ResultSet tableRS = tablePS.executeQuery();
-//    		{
-//    		while (tableRS.next()) {
-//    			
-//    			Flight flight = new Flight();
-//    			flight.setAirlineName(tableRS.getString("airlineName"));
-//    			flight.setFlightNumber(tableRS.getString("flightNumber"));
-//    			flight.setOriginCity(tableRS.getString("originCity"));
-//    			flight.setDestinationCity(tableRS.getString("destinationCity"));
-//    			flights.add(flight);
-//
-//    		}
-//		}	
-//    		table_viewFlight.setItems(flights);
-//    		col_airlineName.setCellValueFactory(f -> f.getValue().airlineNameProperty());
-//    		col_flightNumber.setCellValueFactory(f -> f.getValue().flightNumberProperty());
-//    		col_originCity.setCellValueFactory(f -> f.getValue().originCityProperty());
-//    		col_destinationCity.setCellValueFactory(f -> f.getValue().destinationCityProperty());
-//    		
-//    	} catch (SQLException e) {
-//    		
-//    		e.printStackTrace();
-//    		
-//    	}
-    	
-
     
+    @Override
+    public void initialize(URL location, ResourceBundle resource) {
+    	
+    	showFlights();
+    	
+    	button_goback.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				Action.changeScene(event, "AdminPage.fxml", "Welcome", null);
+				
+			}
+    	
+    	});
+
+    }
+
     public Connection getConnection() {
     	
     	Connection connection = null;
@@ -144,19 +143,38 @@ public class AdminEditFlightControl {
     		
     		while(rs.next()) {
     			
-    			flights = new Flight(rs.getString("airlineName"), rs.getString("flightNumber"), rs.getString("originCity"), rs.getString("destinationCity"));
+    			flights = new Flight(rs.getString("airlineName"), rs.getString("flightNumber"), rs.getString("originCity"),
+    					rs.getString("destinationCity"), rs.getString("departureDate"), rs.getString("departureTime"),
+    					rs.getString("arrivalDate"), rs.getString("arrivalTime"), rs.getInt("flightCapacity"), rs.getInt("seatsAvailable"), rs.getInt("isFull"));
     			
-    			
+    			flightList.add(flights);
     		}
-    		
-    		
+
     	} catch (Exception ex) {
-    		
-    		
+    		ex.printStackTrace();
     	}
     	
+    	return flightList;
+    }
+    
+    public void showFlights() {
+    	
+    	ObservableList<Flight> list = getFlightList();
+    	
+    	col_airlineName.setCellValueFactory(new PropertyValueFactory<Flight, String>("airlineName"));
+    	col_flightNumber.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
+    	col_originCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("originCity"));
+    	col_destinationCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("destinationCity"));
+    	col_departureDate.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDate"));
+    	col_departureTime.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureTime"));
+    	col_arrivalDate.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalDate"));
+    	col_arrivalTime.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrivalTime"));
+    	col_flightCapacity.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("flightCapacity"));
+    	col_seatsAvailable.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("seatsAvailable"));
+    	col_isFull.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("isFull"));
+    	
+    	table_viewFlight.setItems(list);
     	
     }
-
 
 }
