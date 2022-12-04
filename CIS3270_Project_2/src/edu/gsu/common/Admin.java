@@ -29,6 +29,7 @@ public class Admin extends Customer{
 	}
 	
 	//Admin Login, can be logged into Adminpage instead of Customer Page
+	//Admin Info, ID: Admin PW: Admin1234
 	public static void adminLogin(ActionEvent event, String userName, String userPassword) {
 		
 		Connection adminConn = null;
@@ -46,9 +47,9 @@ public class Admin extends Customer{
 			
 			if (!adminRS.isBeforeFirst()) {
 				
-				System.out.println("User not found in the databse.");
+				System.out.println("Please Input Correct Credential");
 				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("Your User Name CANNOT be found in our Database.");
+				alert.setContentText("Please Input Correct Credential");
 				alert.show();
 				
 			} else {
