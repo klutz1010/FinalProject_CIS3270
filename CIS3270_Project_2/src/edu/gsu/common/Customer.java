@@ -13,6 +13,21 @@ public class Customer {
 	private String ssn;
 	private String securityAnswer;
 	
+	public Customer(String userName, String userPassword, String firstName, String lastName, String address,
+			String state, String zip, String emailAddress, String ssn, String securityAnswer) {
+		super();
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.state = state;
+		this.zip = zip;
+		this.emailAddress = emailAddress;
+		this.ssn = ssn;
+		this.securityAnswer = securityAnswer;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}

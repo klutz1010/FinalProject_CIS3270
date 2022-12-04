@@ -48,6 +48,8 @@ public class AdminControl implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				
+				Action.changeScene(event, "AdminEditFlight.fxml", "Edit Flight", null);
+				
 			}
 			
 			
