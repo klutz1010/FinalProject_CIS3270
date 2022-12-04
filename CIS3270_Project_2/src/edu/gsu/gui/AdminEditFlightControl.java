@@ -3,6 +3,7 @@ package edu.gsu.gui;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+
 import edu.gsu.common.Flight;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -131,7 +132,8 @@ public class AdminEditFlightControl implements Initializable {
     	
     	Connection connection = getConnection();
     	
-    	String query = "SELECT * FROM FlightData";
+    	String query = "SELECT airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, "
+    			+ "arrivalDate, arrivalTime, flightCapacity, seatsAvailable, isFull FROM FlightData";
     	Statement st;
     	ResultSet rs;
     	

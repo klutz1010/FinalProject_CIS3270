@@ -17,7 +17,7 @@ public class Flight {
 	public Flight(String airlineName, String flightNumber, String originCity, String destinationCity,
 			String departureDate, String departureTime, String arrivalDate, String arrivalTime, int flightCapacity,
 			int seatsAvailable, int isFull) {
-		super();
+		
 		this.airlineName = airlineName;
 		this.flightNumber = flightNumber;
 		this.originCity = originCity;
@@ -29,6 +29,7 @@ public class Flight {
 		this.flightCapacity = flightCapacity;
 		this.seatsAvailable = seatsAvailable;
 		this.isFull = isFull;
+		
 	}
 
 	public String getAirlineName() {
