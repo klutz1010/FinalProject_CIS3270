@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="application.SampleController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="edu.gsu.gui.StartSearchController">
    <bottom>
       <AnchorPane onMouseClicked="#searchDatabase" prefHeight="377.0" prefWidth="598.0" BorderPane.alignment="CENTER">
          <children>

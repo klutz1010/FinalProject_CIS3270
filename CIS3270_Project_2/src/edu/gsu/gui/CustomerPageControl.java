@@ -17,7 +17,10 @@ public class CustomerPageControl implements Initializable {
 	private Button button_logout;
 	
 	@FXML
-    private Button searchFlightButton;
+    private Button button_searchflight;
+	
+	@FXML
+    private Button button_yourflight;
 	
 
 	@Override
@@ -35,11 +38,11 @@ public class CustomerPageControl implements Initializable {
 		
 	
 	// Use Search Flight button to go to next scene (error)
-		searchFlightButton.setOnAction(new EventHandler<ActionEvent>() {
+		button_searchflight.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 	
-				Action.changeScene(event, "StartSearch.fxml", "Search Flight", );
+				Action.changeScene(event, "StartSearch.fxml", "Search Flight", null);
 				
 			}
 		
