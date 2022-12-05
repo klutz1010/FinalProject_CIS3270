@@ -3,7 +3,6 @@ package edu.gsu.gui;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-
 import edu.gsu.common.Admin;
 import edu.gsu.common.Flight;
 import javafx.collections.FXCollections;
@@ -12,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -146,6 +146,10 @@ public class AdminEditFlightControl implements Initializable {
 						tf_arrivalTime.getText(), Integer.parseInt(tf_flightCapacity.getText()), Integer.parseInt(tf_seatsAvailable.getText()),
 						Integer.parseInt(tf_isFull.getText()));
 				
+				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+				alert.setContentText("The Flight Data has been added.");
+				alert.show();
+				
 				showFlights();	
 			}
     	});
@@ -155,10 +159,14 @@ public class AdminEditFlightControl implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				Admin.updateFlightData(event, tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+				Admin.updateFlightData(event,Integer.parseInt(tf_id.getText()),tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
 						tf_destinationCity.getText(), tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
 						tf_arrivalTime.getText(), Integer.parseInt(tf_flightCapacity.getText()), Integer.parseInt(tf_seatsAvailable.getText()),
 						Integer.parseInt(tf_isFull.getText()));
+				
+				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+				alert.setContentText("The Flight Data has been updated.");
+				alert.show();
 				
 				showFlights();	
 			}	
@@ -171,6 +179,10 @@ public class AdminEditFlightControl implements Initializable {
 			public void handle(ActionEvent event) {
 				
 				Admin.deleteFlightData(event, Integer.parseInt(tf_id.getText()));
+				
+				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+				alert.setContentText("The Flight Data has been deleted.");
+				alert.show();
 				
 				showFlights();	
 			}	
@@ -245,37 +257,6 @@ public class AdminEditFlightControl implements Initializable {
     	col_isFull.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("isFull"));
     	
     	table_viewFlight.setItems(list);
-    	
-    }
-    
-    private void adminAddFlight() {
-    	
-    	String query = "INSERT INTO FlightData VALUES (" + tf_airlineName.getText() + ", " + tf_flightNumber.getText() + ", " + tf_originCity.getText() + ", " +
-    			tf_destinationCity.getText() + ", " + tf_departureDate.getText() + ", " + tf_departureTime.getText() + ", " + tf_arrivalDate.getText() + ", " +
-    			tf_arrivalTime.getText() + ", " + tf_flightCapacity.getText() + ", " + tf_seatsAvailable.getText() + ", " + tf_isFull.getText() + ")";
-    	
-    	executeQuery(query);
-    	showFlights();
-    	
-    }
-    
-    private void executeQuery(String query) {
-    	
-    	Connection conn = getConnection();
-    	Statement st;
-    	
-    	try {
-    		
-    		st = conn.createStatement();
-    		st.executeUpdate(query);
-    		
-    	} catch (Exception ex) {
-    		
-    		ex.printStackTrace();
-    		
-    	}
-    	
-    	
     	
     }
     

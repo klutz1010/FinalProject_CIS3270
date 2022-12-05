@@ -13,9 +13,7 @@ import javafx.scene.control.Button;
 public class AdminControl implements Initializable {
 	
 	@FXML
-	private Button button_addflightdata;
-	@FXML
-	private Button button_deleteflightdata;
+	private Button button_editflightdata;
 	@FXML
 	private Button button_logout;
 
@@ -31,19 +29,8 @@ public class AdminControl implements Initializable {
 			}
 		});
 		
-		button_addflightdata.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				
-				Action.changeScene(event, "AdminAddFlight.fxml", "Add Flight Data", null);
-				
-			}
-			
-			
-		});
 		
-		button_deleteflightdata.setOnAction(new EventHandler<ActionEvent>() {
+		button_editflightdata.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {

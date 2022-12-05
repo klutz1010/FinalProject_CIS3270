@@ -199,7 +199,7 @@ public class Admin {
 		
 	}
 	//Give admin a feature, updating flight data inside the admin page.
-	public static void updateFlightData(ActionEvent event, String airlineName, String flightNumber, String originCity, String destinationCity,
+	public static void updateFlightData(ActionEvent event, int id, String airlineName, String flightNumber, String originCity, String destinationCity,
 				String departureDate, String departureTime, String arrivalDate, String arrivalTime,
 				int flightCapacity, int seatsAvailable, int isFull) {
 	
@@ -212,23 +212,24 @@ public class Admin {
 								+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
 								+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 			
-
 			updateFlightDataPs = updateFlightDataConn.prepareStatement("UPDATE FlightData "
-						+ "SET airlineName=?, originCity=?, destinationCity=?, departureDate=?, departureTime=?, arrivalDate=?, arrivalTime=?, "
-						+ "flightCapacity=?, seatsAvailable=?, isFull=?"
-						+ "WHERE flightNumber = ?");
-				
+			+ "SET airlineName=?, flightNumber=?, originCity=?, destinationCity=?, departureDate=?, departureTime=?, arrivalDate=?, arrivalTime=?, "
+			+ "flightCapacity=?, seatsAvailable=?, isFull=? "
+			+ "WHERE id = ?");
+			
 			updateFlightDataPs.setString(1, airlineName);
-			updateFlightDataPs.setString(2, originCity);
-			updateFlightDataPs.setString(3, destinationCity);
-			updateFlightDataPs.setString(4, departureDate);
-			updateFlightDataPs.setString(5, departureTime);
-			updateFlightDataPs.setString(6, arrivalDate);
-			updateFlightDataPs.setString(7, arrivalTime);
-			updateFlightDataPs.setInt(8, flightCapacity);
-			updateFlightDataPs.setInt(9, seatsAvailable);
-			updateFlightDataPs.setInt(10, isFull);
-			updateFlightDataPs.setString(11, flightNumber);
+			updateFlightDataPs.setString(2, flightNumber);
+			updateFlightDataPs.setString(3, originCity);
+			updateFlightDataPs.setString(4, destinationCity);
+			updateFlightDataPs.setString(5, departureDate);
+			updateFlightDataPs.setString(6, departureTime);
+			updateFlightDataPs.setString(7, arrivalDate);
+			updateFlightDataPs.setString(8, arrivalTime);
+			updateFlightDataPs.setInt(9, flightCapacity);
+			updateFlightDataPs.setInt(10, seatsAvailable);
+			updateFlightDataPs.setInt(11, isFull);
+			updateFlightDataPs.setInt(12, id);
+			
 			updateFlightDataPs.executeUpdate();
 				
 

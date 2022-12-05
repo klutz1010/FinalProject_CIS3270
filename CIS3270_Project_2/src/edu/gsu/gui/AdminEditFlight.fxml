@@ -88,23 +88,32 @@
                      </font>
                   </Label>
                   <TextField fx:id="tf_isFull" alignment="CENTER" layoutX="657.0" layoutY="67.0" prefHeight="25.0" prefWidth="103.0" promptText="Is Full?" />
-                  <Button fx:id="button_addFlight" layoutX="364.0" layoutY="128.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="126.0" text="Add" />
-                  <Button fx:id="button_updateFlight" layoutX="500.0" layoutY="128.0" mnemonicParsing="false" onAction="#Update" prefHeight="25.0" prefWidth="126.0" text="Update" />
-                  <Button fx:id="button_deleteFlight" layoutX="631.0" layoutY="128.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="126.0" text="Delete" />
+                  <Button fx:id="button_addFlight" layoutX="364.0" layoutY="132.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="126.0" text="Add">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="button_updateFlight" layoutX="500.0" layoutY="132.0" mnemonicParsing="false" onAction="#Update" prefHeight="25.0" prefWidth="126.0" text="Update">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="button_deleteFlight" layoutX="635.0" layoutY="132.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="126.0" text="Delete">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Button>
                </children>
             </Pane>
             <TableView fx:id="table_viewFlight" layoutX="14.0" layoutY="14.0" prefHeight="383.0" prefWidth="770.0">
               <columns>
-                  <TableColumn fx:id="col_id" prefWidth="59.0" text="ID" />
-                <TableColumn fx:id="col_airlineName" prefWidth="75.0" text="Airline" />
-                <TableColumn fx:id="col_flightNumber" prefWidth="61.0" text="Flight #" />
-                  <TableColumn fx:id="col_originCity" prefWidth="72.0" text="Origin City" />
-                  <TableColumn fx:id="col_destinationCity" prefWidth="78.0" text="Destination" />
-                  <TableColumn fx:id="col_departureDate" prefWidth="69.0" text="Departure" />
-                  <TableColumn fx:id="col_departureTime" prefWidth="44.0" text="Time" />
-                  <TableColumn fx:id="col_arrivalDate" prefWidth="60.0" text="Arrival" />
-                  <TableColumn fx:id="col_arrivalTime" prefWidth="63.0" text="Time" />
-                  <TableColumn fx:id="col_flightCapacity" prefWidth="72.0" text="Capacity" />
+                  <TableColumn fx:id="col_id" prefWidth="33.0" text="ID" />
+                <TableColumn fx:id="col_airlineName" prefWidth="78.0" text="Airline" />
+                <TableColumn fx:id="col_flightNumber" prefWidth="64.0" text="Flight #" />
+                  <TableColumn fx:id="col_originCity" text="Origin City" />
+                  <TableColumn fx:id="col_destinationCity" text="Destination" />
+                  <TableColumn fx:id="col_departureDate" prefWidth="71.0" text="Departure" />
+                  <TableColumn fx:id="col_departureTime" prefWidth="60.0" text="Time" />
+                  <TableColumn fx:id="col_arrivalDate" prefWidth="64.0" text="Arrival" />
+                  <TableColumn fx:id="col_arrivalTime" prefWidth="61.0" text="Time" />
+                  <TableColumn fx:id="col_flightCapacity" prefWidth="62.0" text="Capacity" />
                   <TableColumn fx:id="col_seatsAvailable" prefWidth="58.0" text="Available" />
                   <TableColumn fx:id="col_isFull" prefWidth="56.0" text="Full" />
               </columns>

@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.AdminControl">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
@@ -23,12 +22,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="button_addflightdata" layoutX="258.0" layoutY="227.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="285.0" text="Add Flight Data">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="button_deleteflightdata" layoutX="258.0" layoutY="319.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="285.0" text="Delete Flight Data">
+            <Button fx:id="button_editflightdata" layoutX="259.0" layoutY="275.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="285.0" text="Edit Flight Data">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
