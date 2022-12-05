@@ -34,12 +34,12 @@ public class CustomerPageControl implements Initializable {
 		});
 		
 	
-	// Use Search Flight button to go to next scene
+	// Use Search Flight button to go to next scene (error)
 		searchFlightButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 	
-				Action.changeScene(event, "StartSearch.fxml", "Search Flight", null);
+				Action.changeScene(event, "StartSearch.fxml", "Search Flight", );
 				
 			}
 		
