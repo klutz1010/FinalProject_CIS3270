@@ -82,12 +82,12 @@
                         <Font size="10.0" />
                      </font>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="533.0" text="NAME">
+                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="533.0" text="Saeb Abu Rayya">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="552.0" text="NAME">
+                  <Label contentDisplay="CENTER" layoutX="363.0" layoutY="552.0" text="Samaria Harvey">
                      <font>
                         <Font size="13.0" />
                      </font>
