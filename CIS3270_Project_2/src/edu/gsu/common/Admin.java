@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import edu.gsu.gui.Action;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -41,7 +40,7 @@ public class Admin {
 					+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
 					+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 			
-			adminPS = adminConn.prepareStatement("SELECT userPassword FROM CustomerData WHERE userName = ? ");
+			adminPS = adminConn.prepareStatement("SELECT userPassword FROM CustomerData WHERE userName = ? AND isAdmin = 1");
 			adminPS.setString(1, userName);
 			adminRS = adminPS.executeQuery();
 			
@@ -369,5 +368,5 @@ public class Admin {
 		}
 	}
 	
-}
+	}
 }
