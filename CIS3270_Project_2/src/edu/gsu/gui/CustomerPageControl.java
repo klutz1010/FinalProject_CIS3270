@@ -45,7 +45,7 @@ public class CustomerPageControl implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 	
-				Action.changeScene(event, "StartSearch.fxml", "Search Flight", null);
+				Action.changeScene(event, "SearchFlight.fxml", "Search Flight", null);
 				
 			}
 		
@@ -64,13 +64,6 @@ public class CustomerPageControl implements Initializable {
 		
 		label_hello.setText("Welcome" + data.getUserName() + " !");
 		
-}
-	
-//	public void setUserInformation(String userName) {
-//			
-//			label_hello.setText(("Welcome" + userName + " !"));
-//				
-//		}
-	
-	
+	}
+
 }
