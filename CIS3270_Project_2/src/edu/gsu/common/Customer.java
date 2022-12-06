@@ -119,6 +119,100 @@ public class Customer {
 	public void setSecurityAnswer(String securityAnswer) {
 		this.securityAnswer = securityAnswer;
 	}
+	
+	public static void addFlight(ActionEvent event, String userName, int id) {
+		
+		Connection addFlightDataConn = null;
+		PreparedStatement addFlightDataPs = null;
+		ResultSet addFlightDataRs = null;
+		
+		try {
+			addFlightDataConn = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
+								+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
+								+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+			
+			
+			addFlightDataPs = addFlightDataConn.prepareStatement("INSERT INTO  Reservation "
+					+ "(airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, "
+					+ "arrivalDate, arrivalTime, seatsAvailable) WHERE userName Value = '" +getStoredUserName() + "' AND "
+					+ "SELECT airlineName,flightNumber,originCity,destinationCity, "
+					+ "departureDate, departureTime, arrivalDate, arrivalTime, seatsAvailable "
+					+ "FROM FlightData WHERE id = ?");
+				
+//			addFlightDataPs.setString(1, getStoredUserName() + "");
+			addFlightDataPs.setInt(1, id);
+//			addFlightDataPs.setString(2, airlineName);
+//			addFlightDataPs.setString(3, flightNumber);
+//			addFlightDataPs.setString(4, originCity);
+//			addFlightDataPs.setString(5, destinationCity);
+//			addFlightDataPs.setString(6, departureDate);
+//			addFlightDataPs.setString(7, departureTime);
+//			addFlightDataPs.setString(8, arrivalDate);
+//			addFlightDataPs.setString(9, arrivalTime);
+//			addFlightDataPs.setInt(10, seatsAvailable);
+//			addFlightDataPs.setInt(11, id);
+			addFlightDataPs.executeUpdate();
+				
+
+			} catch (SQLException e) {
+					
+				e.printStackTrace();
+					
+			} finally {
+				
+				if (addFlightDataRs != null) {
+					
+					try {
+						addFlightDataRs.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					
+					
+				}
+				
+				if (addFlightDataPs != null) {
+					try {
+						
+						addFlightDataPs.close();
+						
+					} catch (SQLException e) {
+						
+						e.printStackTrace();
+						
+					}
+					
+				}
+				
+				if (addFlightDataPs != null) {
+					
+					try {
+						addFlightDataPs.close();
+						
+					} catch (SQLException e) {
+				
+						e.printStackTrace();
+						
+					}
+					
+				if (addFlightDataConn != null) {
+					
+					try {
+						
+						addFlightDataConn.close();
+						
+					} catch (SQLException e) {
+						
+						e.printStackTrace();
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+	}
 
 	//making a method for canceling a flight
 	public static void cancelFlight(ActionEvent event, int id) {

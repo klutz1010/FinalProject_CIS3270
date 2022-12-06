@@ -116,7 +116,7 @@ public class SearchFlightControl implements Initializable{
 			@Override
 			public void handle(ActionEvent event) {
 				
-				Action.changeScene(event, "CustomerPage.fxml", "Welcome Back", null );
+				Customer.addFlight(event, data.getUserName(), Integer.parseInt(tf_id.getText()));
 				
 			}
 			

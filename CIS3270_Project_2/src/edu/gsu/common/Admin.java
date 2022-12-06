@@ -105,7 +105,7 @@ public class Admin {
 	}
 		
 	//giving Admin a power, adding a new Flight Data
-	public static void addFlightData(ActionEvent event, String airlineName, String flightNumber, String originCity, String destinationCity,
+	public static void addFlightData(ActionEvent event, int id, String airlineName, String flightNumber, String originCity, String destinationCity,
 										String departureDate, String departureTime, String arrivalDate, String arrivalTime,
 										int flightCapacity, int seatsAvailable, int isFull) {
 		
@@ -120,21 +120,22 @@ public class Admin {
 			
 
 				addFlightDataPs = addFlightDataConn.prepareStatement("INSERT INTO FlightData "
-						+ "(airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, arrivalDate, arrivalTime, "
+						+ "(id, airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, arrivalDate, arrivalTime, "
 						+ "flightCapacity, seatsAvailable, isFull)"
-						+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+						+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				
-				addFlightDataPs.setString(1, airlineName);
-				addFlightDataPs.setString(2, flightNumber);
-				addFlightDataPs.setString(3, originCity);
-				addFlightDataPs.setString(4, destinationCity);
-				addFlightDataPs.setString(5, departureDate);
-				addFlightDataPs.setString(6, departureTime);
-				addFlightDataPs.setString(7, arrivalDate);
-				addFlightDataPs.setString(8, arrivalTime);
-				addFlightDataPs.setInt(9, flightCapacity);
-				addFlightDataPs.setInt(10, seatsAvailable);
-				addFlightDataPs.setInt(11, isFull);
+				addFlightDataPs.setInt(1, id);
+				addFlightDataPs.setString(2, airlineName);
+				addFlightDataPs.setString(3, flightNumber);
+				addFlightDataPs.setString(4, originCity);
+				addFlightDataPs.setString(5, destinationCity);
+				addFlightDataPs.setString(6, departureDate);
+				addFlightDataPs.setString(7, departureTime);
+				addFlightDataPs.setString(8, arrivalDate);
+				addFlightDataPs.setString(9, arrivalTime);
+				addFlightDataPs.setInt(10, flightCapacity);
+				addFlightDataPs.setInt(11, seatsAvailable);
+				addFlightDataPs.setInt(12, isFull);
 				addFlightDataPs.executeUpdate();
 				
 
