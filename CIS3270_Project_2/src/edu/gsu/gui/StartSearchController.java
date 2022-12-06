@@ -1,8 +1,7 @@
 package edu.gsu.gui;
 
-	import java.net.URL;
+import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,9 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-// Search Flight by origin city, destination and/or date of departure
-	public class StartSearchController implements Initializable {
 
+	public class StartSearchController implements Initializable {
 
 	    @FXML
 	    private Text dateOfDeparture;
@@ -41,7 +39,6 @@ import javafx.scene.text.Text;
 	    @FXML
 	    void handleMainMenu(ActionEvent event) {
 	    	
-
 	    }
 
 	    @FXML
