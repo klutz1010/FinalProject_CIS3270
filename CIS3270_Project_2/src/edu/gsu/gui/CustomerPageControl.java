@@ -19,10 +19,10 @@ public class CustomerPageControl implements Initializable {
 	private Button button_logout;
 	
 	@FXML
-    private Button button_searchflight;
+    private Button button_logout11;
 	
 	@FXML
-    private Button button_yourflight;
+    private Button button_logout1;
 	
 	Customer data = Customer.getStoredUserName();
 
@@ -41,7 +41,7 @@ public class CustomerPageControl implements Initializable {
 		
 	
 	// Use Search Flight button to go to next scene (error)
-		button_searchflight.setOnAction(new EventHandler<ActionEvent>() {
+		button_logout11.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 	
@@ -51,7 +51,7 @@ public class CustomerPageControl implements Initializable {
 		
 		});
 					
-		button_yourflight.setOnAction(new EventHandler<ActionEvent>() {
+		button_logout1.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
 					

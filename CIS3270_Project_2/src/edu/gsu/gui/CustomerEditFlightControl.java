@@ -119,6 +119,7 @@ public class CustomerEditFlightControl implements Initializable{
     	
     	Connection connection = Action.getConnection();
     	
+    	
     	String query = "SELECT id, userName, airlineName, flightNumber, originCity,"
     			+ "destinationCity, departureDate, departureTime, "
     			+ "arrivalDate, arrivalTime, seatsAvailable FROM Reservation "
