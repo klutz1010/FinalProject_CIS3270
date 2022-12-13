@@ -46,7 +46,7 @@ public class AdminAddFlightControl implements Initializable{
 			@Override
 			public void handle(ActionEvent event) {
 				
-				Admin.addFlightData(event, tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+				Admin.addFlightData(event, 0, tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
 						tf_destinationCity.getText(), tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
 						tf_arrivalTime.getText(), Integer.parseInt(tf_flightCapacity.getText()), Integer.parseInt(tf_seatsAvailable.getText()),
 						Integer.parseInt(tf_isFull.getText()));
