@@ -22,12 +22,12 @@
                   <Font name="System Bold Italic" size="48.0" />
                </font>
             </Label>
-            <Button fx:id="button_yourflight" layoutX="250.0" layoutY="275.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="300.0" text="Your Flight" textFill="#445e5e">
+            <Button fx:id="button_logout1" layoutX="250.0" layoutY="275.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="300.0" text="Your Flight" textFill="#445e5e">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="button_searchflight" layoutX="250.0" layoutY="202.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="300.0" text="Search Flight" textFill="#445e5e">
+            <Button fx:id="button_logout11" layoutX="250.0" layoutY="202.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="300.0" text="Search Flight" textFill="#445e5e">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
