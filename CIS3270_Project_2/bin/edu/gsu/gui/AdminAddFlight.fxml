@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.AdminAddFlightControl">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="804.0">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="798.0" layoutX="100.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@admin.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="270.0" layoutY="64.0" text="Airline Name">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tf_airlineName" alignment="CENTER" layoutX="400.0" layoutY="65.0" promptText="Airline Name" />
+            <TextField fx:id="tf_flightNumber" alignment="CENTER" layoutX="400.0" layoutY="100.0" promptText="Flight Number" />
+            <TextField fx:id="tf_originCity" alignment="CENTER" layoutX="400.0" layoutY="136.0" promptText="Origin City" />
+            <TextField fx:id="tf_destinationCity" alignment="CENTER" layoutX="400.0" layoutY="172.0" promptText="Destination City" />
+            <TextField fx:id="tf_departureDate" alignment="CENTER" layoutX="400.0" layoutY="207.0" promptText="Departure Date" />
+            <TextField fx:id="tf_departureTime" alignment="CENTER" layoutX="400.0" layoutY="242.0" promptText="Departure Time" />
+            <TextField fx:id="tf_arrivalDate" alignment="CENTER" layoutX="400.0" layoutY="275.0" promptText="Arrival Date" />
+            <TextField fx:id="tf_arrivalTime" alignment="CENTER" layoutX="400.0" layoutY="313.0" promptText="Arrival Time" />
+            <TextField fx:id="tf_flightCapacity" alignment="CENTER" layoutX="400.0" layoutY="347.0" promptText="Flight Capacity" />
+            <TextField fx:id="tf_seatsAvailable" alignment="CENTER" layoutX="400.0" layoutY="382.0" promptText="Seats Available" />
+            <TextField fx:id="tf_isFull" alignment="CENTER" layoutX="400.0" layoutY="418.0" promptText="Is it Full?" />
+            <Label layoutX="257.0" layoutY="99.0" text="Flight Number">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="289.0" layoutY="135.0" text="Origin City">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="245.0" layoutY="171.0" text="Destination City">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="248.0" layoutY="206.0" text="Departure Date">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="248.0" layoutY="241.0" text="Departure Time">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="275.0" layoutY="274.0" text="Arrival Date">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="275.0" layoutY="312.0" text="Arrival Time">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="346.0" text="Flight Capacity">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="381.0" text="Seats Available">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="241.0" layoutY="417.0" text="Is the Flight Full?">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_addflightdatadb" layoutX="260.0" layoutY="476.0" mnemonicParsing="false" text="Add Flight Data into Database">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_backtoadminpage" layoutX="669.0" layoutY="561.0" mnemonicParsing="false" text="Back to Admin Page" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
