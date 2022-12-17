@@ -10,6 +10,8 @@ import edu.gsu.common.Reservation;
 import edu.gsu.common.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,7 +29,7 @@ public class SearchFlightControl implements Initializable{
     private Button button_reserve;
 
     @FXML
-    private Button button_search;
+    private Button button_bookFlight;
     
     @FXML
     private Button button_goback;
@@ -90,7 +92,8 @@ public class SearchFlightControl implements Initializable{
 		showCustomerFlights();
 	
 		//search function that shows filtered table
-		button_search.setOnAction(new EventHandler<ActionEvent>(){
+		//(s.h) search button needs to go to pop up message that confirms flight
+		button_bookFlight.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent event) {
 				
@@ -174,8 +177,91 @@ public class SearchFlightControl implements Initializable{
 	    	
 	    	table_flightTable.setItems(list);
 	    	
+	    
+	    //displays all or current record if no matches
+	    FilteredList < Flight > filteredData = new FilteredList<>( list, b -> true);
+	    
+	   /* tf_originCity.textProperty().addListener((observable, oldValue, newValue) -> {
+	    	filteredData.setPredicate(Flight -> {
+	    		
+	    		if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+	    			return true;
+	    		}
+	    		
+	    		String searchKeyword = newValue.toLowerCase();
+	    		
+	    		if(Flight.getDepartureDate().toLowerCase().indexOf(searchKeyword) > -1) {
+	    			return true;
+	    		}
+	    		else if(Flight.getOriginCity().toLowerCase().indexOf(searchKeyword) > -1) {
+	    			return true;
+	    		}
+	    		else if(Flight.getDestinationCity().toLowerCase().indexOf(searchKeyword) > -1) {
+	    			return true;
+	    		}
+	    		else
+	    			return false;
+	    		
+	    	});
+	 
+	    });*/
+	    tf_originCity.textProperty().addListener((observable, oldValue, newValue) -> {
+	    	filteredData.setPredicate(Flight -> {
+	    		
+	    		if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+	    			return true;
+	    		}
+	    		
+	    		String searchKeyword = newValue.toLowerCase();
+	    		
+	    		if(Flight.getOriginCity().toLowerCase().indexOf(searchKeyword) > -1) {
+	    			return true;
+	    		}
+	    		else
+	    			return false;
+	    	 });
+	    });
+	    tf_date.textProperty().addListener((observable2, oldValue2, newValue2) -> {
+	    	filteredData.setPredicate(Flight -> {
+	    		
+	    		if (newValue2.isEmpty() || newValue2.isBlank() || newValue2 == null) {
+	    			return true;
+	    		}
+	    		
+	    		String searchKeyword = newValue2.toLowerCase();
+	    		
+	    		if(Flight.getDepartureDate().toLowerCase().indexOf(searchKeyword) > -1) {
+	    			return true;
+	    		}
+	    		else
+	    			return false;
+	    	});
+	    });
+	    tf_destinationCity.textProperty().addListener((observable3, oldValue3, newValue3) -> {
+	    	filteredData.setPredicate(Flight -> {
+	    		
+	    		if (newValue3.isEmpty() || newValue3.isBlank() || newValue3 == null) {
+	    			return true;
+	    		}
+	    		
+	    		String searchKeyword = newValue3.toLowerCase();
+	    		
+	    		if(Flight.getDestinationCity().toLowerCase().indexOf(searchKeyword) > -1) {
+	    			return true;
+	    		}
+	    		else
+	    			return false;
+	   
+	   
+	
+	    });
+	    });
+	    
+	    SortedList <Flight > sortedData = new SortedList <> (filteredData);
+	    
+	    //Connect sorted data with table view
+	    sortedData.comparatorProperty().bind(table_flightTable.comparatorProperty());
+	    table_flightTable.setItems(sortedData);
+	
 	    }
-	
-	
-
 }

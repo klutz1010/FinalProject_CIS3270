@@ -56,9 +56,9 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="button_search" layoutX="311.0" layoutY="486.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="106.0" text="Search">
+            <Button fx:id="button_bookFlight" layoutX="340.0" layoutY="486.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="143.0" style="-fx-background-color: #075eae;" text="Book Flight" textFill="#1c1d1e">
                <font>
-                  <Font name="System Bold Italic" size="18.0" />
+                  <Font name="System Bold Italic" size="21.0" />
                </font>
             </Button>
             <Button fx:id="button_reserve" layoutX="545.0" layoutY="528.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="143.0" text="Reserve">
