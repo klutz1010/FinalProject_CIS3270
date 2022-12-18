@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import edu.gsu.common.Admin;
+import edu.gsu.common.Customer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,6 +26,9 @@ public class MainControl implements Initializable{
 	private Button button_signup;
 	@FXML
 	private Button button_resetpassword;
+	
+	//recalling the stored user name.
+	Customer data = Customer.getStoredUserName();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -32,7 +36,8 @@ public class MainControl implements Initializable{
 		button_login.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-
+				
+				data.setUserName(tf_username.getText());
 				Action.loginUser(event, tf_username.getText(), tf_password.getText());
 					
 				}
