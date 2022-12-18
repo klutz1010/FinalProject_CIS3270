@@ -2,6 +2,7 @@ package edu.gsu.gui;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -22,8 +23,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 public class SearchFlightControl implements Initializable{
+	 @FXML
+	    private Text bookedTxt;
 
     @FXML
     private Button button_reserve;
@@ -83,6 +88,20 @@ public class SearchFlightControl implements Initializable{
     private TextField tf_originCity;
     //passing  customer user name value
     Customer data = Customer.getStoredUserName();
+    
+    ObservableList<Flight> flightList = FXCollections.observableArrayList();
+    Connection conn;
+    ResultSet rs;
+    PreparedStatement pst;
+    int index;
+    
+    
+    @FXML
+    void getRecord(MouseEvent event) {
+    	index = table_flightTable.getSelectionModel().getSelectedIndex();
+    	
+	}
+    	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -137,6 +156,8 @@ public class SearchFlightControl implements Initializable{
 	    			+ "arrivalDate, arrivalTime, flightCapacity, seatsAvailable, isFull FROM FlightData";
 	    	Statement st;
 	    	ResultSet rs;
+	    	
+	    	
 	    	
 	    	try {
 	    		
@@ -254,7 +275,7 @@ public class SearchFlightControl implements Initializable{
 	   
 	   
 	
-	    });
+	    	});
 	    });
 	    
 	    SortedList <Flight > sortedData = new SortedList <> (filteredData);

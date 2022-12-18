@@ -8,12 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.SearchFlightControl">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <TableView fx:id="table_flightTable" prefHeight="464.0" prefWidth="800.0">
+            <TableView fx:id="table_flightTable" onMouseClicked="#getRecord" prefHeight="464.0" prefWidth="800.0">
               <columns>
                 <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="col_airlineName" prefWidth="75.0" text="Airline" />
@@ -56,7 +57,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="button_bookFlight" layoutX="340.0" layoutY="486.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="143.0" style="-fx-background-color: #075eae;" text="Book Flight" textFill="#1c1d1e">
+            <Button fx:id="button_bookFlight" layoutX="340.0" layoutY="486.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="143.0" style="-fx-background-color: #075eae;" text="Book Flight" textFill="#1c1d1e">
                <font>
                   <Font name="System Bold Italic" size="21.0" />
                </font>
@@ -72,6 +73,7 @@
                </font>
             </Label>
             <Button fx:id="button_goback" layoutX="726.0" layoutY="564.0" mnemonicParsing="false" text="Go Back" />
+            <Text fx:id="bookedTxt" layoutX="340.0" layoutY="576.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bookedMessage" wrappingWidth="143.0" />
          </children>
       </AnchorPane>
    </children>
