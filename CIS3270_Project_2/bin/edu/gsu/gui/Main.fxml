@@ -20,7 +20,7 @@
             </ImageView>
             <AnchorPane layoutX="319.0" layoutY="4.0" prefHeight="600.0" prefWidth="480.0" style="-fx-background-color: transparent;">
                <children>
-                  <ImageView fitHeight="76.0" fitWidth="62.0" layoutX="393.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="76.0" fitWidth="62.0" layoutX="387.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@airplane.png" />
                      </image>
@@ -82,12 +82,12 @@
                         <Font size="10.0" />
                      </font>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="533.0" text="NAME">
+                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="533.0" text="Saeb Abu Rayya">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="552.0" text="NAME">
+                  <Label contentDisplay="CENTER" layoutX="363.0" layoutY="552.0" text="Samaria Harvey">
                      <font>
                         <Font size="13.0" />
                      </font>
