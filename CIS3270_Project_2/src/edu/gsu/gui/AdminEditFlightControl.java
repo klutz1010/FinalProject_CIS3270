@@ -2,6 +2,8 @@ package edu.gsu.gui;
 
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import edu.gsu.common.Admin;
 import edu.gsu.common.Flight;
@@ -13,10 +15,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class AdminEditFlightControl implements Initializable {
 	
@@ -84,6 +88,9 @@ public class AdminEditFlightControl implements Initializable {
 
     @FXML
     private TextField tf_departureDate;
+    
+    @FXML
+    private DatePicker datepick_departureDate;
 
     @FXML
     private TextField tf_departureTime;
@@ -121,6 +128,32 @@ public class AdminEditFlightControl implements Initializable {
 
     }
     
+    //Making selection from the table for add/update/delete flight data
+    @FXML
+    void handleMouseAction(MouseEvent event) {
+    	
+    	//LocalDate theDate = datepick_departureDate.getValue();
+    	//String formattedTheDate = theDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+    	
+    	Flight flights = table_viewFlight.getSelectionModel().getSelectedItem();
+    	tf_id.setText("" + flights.getId());
+    	tf_airlineName.setText(flights.getAirlineName()); 
+    	tf_flightNumber.setText("" + flights.getFlightNumber());
+    	tf_originCity.setText(flights.getOriginCity());
+    	tf_destinationCity.setText(flights.getDestinationCity());
+    	tf_departureDate.setText(flights.getDepartureDate());
+    	//datepick_departureDate.setPromptText(theDate.toString());;
+    	tf_departureTime.setText(flights.getDepartureTime());
+    	tf_arrivalDate.setText(flights.getArrivalDate());
+    	tf_arrivalTime.setText(flights.getArrivalTime());
+    	tf_flightCapacity.setText("" + flights.getFlightCapacity());
+    	tf_seatsAvailable.setText("" + flights.getSeatsAvailable());
+    	tf_isFull.setText("" + flights.getIsFull());
+    	tf_id.setTextFormatter(null);
+    	
+    }
+
+    
     @Override
     public void initialize(URL location, ResourceBundle resource) {
     	//display table in javafx
@@ -141,7 +174,7 @@ public class AdminEditFlightControl implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				Admin.addFlightData(event, tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+				Admin.addFlightData(event, Integer.parseInt(tf_id.getText()), tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
 						tf_destinationCity.getText(), tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
 						tf_arrivalTime.getText(), Integer.parseInt(tf_flightCapacity.getText()), Integer.parseInt(tf_seatsAvailable.getText()),
 						Integer.parseInt(tf_isFull.getText()));
@@ -257,6 +290,13 @@ public class AdminEditFlightControl implements Initializable {
     	col_isFull.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("isFull"));
     	
     	table_viewFlight.setItems(list);
+    	
+    }
+    
+    public void getDate(ActionEvent event) {
+    	
+    	
+    	
     	
     }
     

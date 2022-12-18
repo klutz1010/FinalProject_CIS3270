@@ -2,7 +2,6 @@ package edu.gsu.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import edu.gsu.common.Admin;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
