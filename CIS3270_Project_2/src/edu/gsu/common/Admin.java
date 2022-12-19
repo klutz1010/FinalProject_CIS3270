@@ -138,10 +138,16 @@ public class Admin {
 				addFlightDataPs.setInt(12, isFull);
 				addFlightDataPs.executeUpdate();
 				
-
+				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+				alert.setContentText("The Flight Data has been added.");
+				alert.show();
+				
 			} catch (SQLException e) {
 					
 				e.printStackTrace();
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setContentText("You Cannot Have Same ID # for each flight \n Please try again with a different ID #");
+				alert.show();
 					
 			} finally {
 				
