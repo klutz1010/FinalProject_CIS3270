@@ -70,6 +70,7 @@ public class CustomerEditFlightControl implements Initializable{
     @FXML
     private TextField tf_id;
     
+    //able to select the flight from the table, make it easier to cancel the reservation
     @FXML
     void handleMouseAction(MouseEvent event) {
     	

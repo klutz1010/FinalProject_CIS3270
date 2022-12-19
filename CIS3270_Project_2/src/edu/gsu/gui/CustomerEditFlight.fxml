@@ -18,32 +18,35 @@
          <children>
             <Pane layoutX="15.0" layoutY="516.0" prefHeight="80.0" prefWidth="770.0" style="-fx-background-color: black;">
                <children>
-                  <Label layoutX="293.0" layoutY="27.0" text="ID #" textFill="WHITE">
+                  <Label layoutX="307.0" layoutY="27.0" text="ID #" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_id" alignment="CENTER" layoutX="332.0" layoutY="18.0" prefHeight="42.0" prefWidth="149.0" promptText="Your Flight ID #" />
-                  <Button fx:id="button_cancelFlight" alignment="CENTER_RIGHT" layoutX="491.0" layoutY="18.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="155.0" text="Cancel Your Flight">
+                  <TextField fx:id="tf_id" alignment="CENTER" layoutX="346.0" layoutY="18.0" prefHeight="42.0" prefWidth="149.0" promptText="Your Flight ID #">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></TextField>
+                  <Button fx:id="button_cancelFlight" alignment="CENTER_RIGHT" layoutX="505.0" layoutY="18.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="155.0" text="Cancel Your Flight">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Button>
-                  <Label fx:id="label_userName" layoutX="14.0" layoutY="9.0" text="userName" textFill="WHITE">
+                  <Label fx:id="label_userName" layoutX="20.0" layoutY="13.0" text="userName" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="24.0" />
+                        <Font name="System Bold Italic" size="36.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="491.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="505.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Icon_Delete.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="button_goback" alignment="CENTER_RIGHT" layoutX="655.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="101.0" text="Go Back">
+                  <Button fx:id="button_goback" alignment="CENTER_RIGHT" layoutX="669.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="101.0" text="Go Back">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="659.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="673.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Icon_Back.png" />
                      </image>
