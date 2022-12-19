@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -12,17 +14,17 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.CustomerEditFlightControl">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;">
          <children>
-            <Pane layoutX="15.0" layoutY="516.0" prefHeight="49.0" prefWidth="770.0" style="-fx-background-color: black;">
+            <Pane layoutX="15.0" layoutY="516.0" prefHeight="80.0" prefWidth="770.0" style="-fx-background-color: black;">
                <children>
-                  <Label layoutX="399.0" layoutY="13.0" text="ID #" textFill="WHITE">
+                  <Label layoutX="293.0" layoutY="27.0" text="ID #" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_id" alignment="CENTER" layoutX="442.0" layoutY="14.0" promptText="Your Flight ID #" />
-                  <Button fx:id="button_cancelFlight" layoutX="607.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" text="Cancel Your Flight">
+                  <TextField fx:id="tf_id" alignment="CENTER" layoutX="332.0" layoutY="18.0" prefHeight="42.0" prefWidth="149.0" promptText="Your Flight ID #" />
+                  <Button fx:id="button_cancelFlight" alignment="CENTER_RIGHT" layoutX="491.0" layoutY="18.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="155.0" text="Cancel Your Flight">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Button>
@@ -31,9 +33,24 @@
                         <Font name="System Bold Italic" size="24.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="491.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icon_Delete.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="button_goback" alignment="CENTER_RIGHT" layoutX="655.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="101.0" text="Go Back">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="659.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icon_Back.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <TableView fx:id="table_viewFlight" layoutX="14.0" layoutY="14.0" prefHeight="495.0" prefWidth="770.0">
+            <TableView fx:id="table_viewFlight" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleMouseAction" prefHeight="495.0" prefWidth="770.0">
               <columns>
                   <TableColumn fx:id="col_id" prefWidth="24.0" text="ID" />
                   <TableColumn fx:id="col_userName" prefWidth="76.0" text="User Name" />
@@ -48,7 +65,6 @@
                   <TableColumn fx:id="col_seatsAvailable" prefWidth="97.0" text="Seats Available" />
               </columns>
             </TableView>
-            <Button fx:id="button_goback" layoutX="726.0" layoutY="568.0" mnemonicParsing="false" text="Go Back" />
          </children>
       </AnchorPane>
    </children>

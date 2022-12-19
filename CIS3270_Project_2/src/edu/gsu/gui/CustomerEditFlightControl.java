@@ -18,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class CustomerEditFlightControl implements Initializable{
 
@@ -69,6 +70,14 @@ public class CustomerEditFlightControl implements Initializable{
     @FXML
     private TextField tf_id;
     
+    @FXML
+    void handleMouseAction(MouseEvent event) {
+    	
+    	Reservation reservations = table_viewFlight.getSelectionModel().getSelectedItem();
+    	tf_id.setText("" + reservations.getId());
+    	
+    }
+    
 	Customer data = Customer.getStoredUserName();
 
 	@Override
@@ -86,7 +95,7 @@ public class CustomerEditFlightControl implements Initializable{
 				Customer.cancelFlight(event, Integer.parseInt(tf_id.getText()));
 				
 				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-				alert.setContentText("The Flight Data has been deleted.");
+				alert.setContentText("The Flight Reservation has been cancelled.");
 				alert.show();
 				
 				showReservations();	
