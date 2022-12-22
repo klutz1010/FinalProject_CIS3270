@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -76,16 +77,43 @@ public class SearchFlightControl implements Initializable{
     private TableView<Flight> table_flightTable;
 
     @FXML
+    private TextField tf_airlineName;
+
+    @FXML
+    private TextField tf_arrivalDate;
+
+    @FXML
+    private TextField tf_arrivalTime;
+
+    @FXML
     private TextField tf_date;
 
     @FXML
+    private TextField tf_departureDate;
+
+    @FXML
+    private TextField tf_departureTime;
+
+    @FXML
     private TextField tf_destinationCity;
+
+    @FXML
+    private TextField tf_flightNumber;
 
     @FXML
     private TextField tf_id;
 
     @FXML
     private TextField tf_originCity;
+    
+    @FXML
+    private TextField tf_origin;
+    
+    @FXML
+    private TextField tf_destination;
+    
+    @FXML
+    private TextField tf_seatsAvailable;
     //passing  customer user name value
     Customer data = Customer.getStoredUserName();
     
@@ -95,10 +123,20 @@ public class SearchFlightControl implements Initializable{
     PreparedStatement pst;
     int index;
     
-    
     @FXML
-    void getRecord(MouseEvent event) {
-    	index = table_flightTable.getSelectionModel().getSelectedIndex();
+    void handleMouseAction(MouseEvent event) {
+    	
+    	Flight flights = table_flightTable.getSelectionModel().getSelectedItem();
+    	
+    	tf_airlineName.setText(flights.getAirlineName()); 
+    	tf_flightNumber.setText("" + flights.getFlightNumber());
+    	tf_originCity.setText(flights.getOriginCity());
+    	tf_destinationCity.setText(flights.getDestinationCity());
+    	tf_departureDate.setText(flights.getDepartureDate());
+    	tf_departureTime.setText(flights.getDepartureTime());
+    	tf_arrivalDate.setText(flights.getArrivalDate());
+    	tf_arrivalTime.setText(flights.getArrivalTime());
+    	tf_seatsAvailable.setText("" + flights.getSeatsAvailable());
     	
 	}
     	
@@ -138,7 +176,9 @@ public class SearchFlightControl implements Initializable{
 			@Override
 			public void handle(ActionEvent event) {
 				
-				Customer.addFlight(event, data.getUserName(), Integer.parseInt(tf_id.getText()));
+				Customer.addFlight(event, data.getUserName(), tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+						tf_destinationCity.getText(), tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
+						tf_arrivalTime.getText(), tf_id.getText());
 				
 			}
 			
@@ -156,9 +196,7 @@ public class SearchFlightControl implements Initializable{
 	    			+ "arrivalDate, arrivalTime, flightCapacity, seatsAvailable, isFull FROM FlightData";
 	    	Statement st;
 	    	ResultSet rs;
-	    	
-	    	
-	    	
+	    
 	    	try {
 	    		
 	    		st = connection.createStatement();
@@ -226,7 +264,7 @@ public class SearchFlightControl implements Initializable{
 	    	});
 	 
 	    });*/
-	    tf_originCity.textProperty().addListener((observable, oldValue, newValue) -> {
+	    tf_origin.textProperty().addListener((observable, oldValue, newValue) -> {
 	    	filteredData.setPredicate(Flight -> {
 	    		
 	    		if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
@@ -258,7 +296,7 @@ public class SearchFlightControl implements Initializable{
 	    			return false;
 	    	});
 	    });
-	    tf_destinationCity.textProperty().addListener((observable3, oldValue3, newValue3) -> {
+	    tf_destination.textProperty().addListener((observable3, oldValue3, newValue3) -> {
 	    	filteredData.setPredicate(Flight -> {
 	    		
 	    		if (newValue3.isEmpty() || newValue3.isBlank() || newValue3 == null) {

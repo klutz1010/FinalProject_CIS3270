@@ -14,7 +14,7 @@
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <TableView fx:id="table_flightTable" onMouseClicked="#getRecord" prefHeight="464.0" prefWidth="800.0">
+            <TableView fx:id="table_flightTable" onMouseClicked="#handleMouseAction" prefHeight="464.0" prefWidth="800.0">
               <columns>
                 <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="col_airlineName" prefWidth="75.0" text="Airline" />
@@ -39,13 +39,13 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_originCity" alignment="CENTER" layoutX="154.0" layoutY="510.0" promptText="Origin City" />
+            <TextField fx:id="tf_origin" alignment="CENTER" layoutX="154.0" layoutY="510.0" promptText="Origin City" />
             <Label layoutX="48.0" layoutY="536.0" text="Destination">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_destinationCity" alignment="CENTER" layoutX="154.0" layoutY="537.0" promptText="Destination City" />
+            <TextField fx:id="tf_destination" alignment="CENTER" layoutX="154.0" layoutY="537.0" promptText="Destination City" />
             <Label layoutX="502.0" layoutY="499.0" text="ID#">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -73,7 +73,52 @@
                </font>
             </Label>
             <Button fx:id="button_goback" layoutX="726.0" layoutY="564.0" mnemonicParsing="false" text="Go Back" />
-            <Text fx:id="bookedTxt" layoutX="340.0" layoutY="576.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bookedMessage" wrappingWidth="143.0" />
+            <Text fx:id="bookedTxt" layoutX="340.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bookedMessage" wrappingWidth="143.0" />
+            <TextField fx:id="tf_airlineName" layoutX="72.0" layoutY="574.0" prefHeight="25.0" prefWidth="77.0" promptText="tf_airlineName">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_flightNumber" layoutX="149.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_flightNumber">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_originCity" layoutX="219.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_originCity">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_destinationCity" layoutX="289.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_destinationCity">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_departureDate" layoutX="359.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_departureDate">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_departureTime" layoutX="429.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_departureTime">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_arrivalDate" layoutX="497.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_arrivalDate">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_arrivalTime" layoutX="567.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_arrivalTime">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_seatsAvailable" layoutX="637.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_seatsAvailable">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </children>

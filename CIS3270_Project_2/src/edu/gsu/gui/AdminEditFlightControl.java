@@ -149,7 +149,7 @@ public class AdminEditFlightControl implements Initializable {
     	tf_flightCapacity.setText("" + flights.getFlightCapacity());
     	tf_seatsAvailable.setText("" + flights.getSeatsAvailable());
     	tf_isFull.setText("" + flights.getIsFull());
-    	tf_id.setTextFormatter(null);
+//    	tf_id.setTextFormatter(null);
     	
     }
 
