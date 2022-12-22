@@ -119,8 +119,9 @@ public class Customer {
 	public void setSecurityAnswer(String securityAnswer) {
 		this.securityAnswer = securityAnswer;
 	}
-	
-	public static void addFlight(ActionEvent event, String userName, int id) {
+
+	public static void addFlight(ActionEvent event, String userName, String airlineName, String flightNumber, String originCity, String destinationCity,
+													String departureDate, String departureTime, String arrivalDate, String arrivalTime, String seatsAvailable) {
 		
 		Connection addFlightDataConn = null;
 		PreparedStatement addFlightDataPs = null;
@@ -133,26 +134,25 @@ public class Customer {
 			
 			
 			addFlightDataPs = addFlightDataConn.prepareStatement("INSERT INTO  Reservation "
-					+ "(airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, "
-					+ "arrivalDate, arrivalTime, seatsAvailable) WHERE userName Value = '" +getStoredUserName() + "' AND "
-					+ "SELECT airlineName,flightNumber,originCity,destinationCity, "
-					+ "departureDate, departureTime, arrivalDate, arrivalTime, seatsAvailable "
-					+ "FROM FlightData WHERE id = ?");
+					+ "(userName, airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, "
+					+ "arrivalDate, arrivalTime, seatsAvailable)"
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				
-//			addFlightDataPs.setString(1, getStoredUserName() + "");
-			addFlightDataPs.setInt(1, id);
-//			addFlightDataPs.setString(2, airlineName);
-//			addFlightDataPs.setString(3, flightNumber);
-//			addFlightDataPs.setString(4, originCity);
-//			addFlightDataPs.setString(5, destinationCity);
-//			addFlightDataPs.setString(6, departureDate);
-//			addFlightDataPs.setString(7, departureTime);
-//			addFlightDataPs.setString(8, arrivalDate);
-//			addFlightDataPs.setString(9, arrivalTime);
-//			addFlightDataPs.setInt(10, seatsAvailable);
-//			addFlightDataPs.setInt(11, id);
+			addFlightDataPs.setString(1, userName);
+			addFlightDataPs.setString(2, airlineName);
+			addFlightDataPs.setString(3, flightNumber);
+			addFlightDataPs.setString(4, originCity);
+			addFlightDataPs.setString(5, destinationCity);
+			addFlightDataPs.setString(6, departureDate);
+			addFlightDataPs.setString(7, departureTime);
+			addFlightDataPs.setString(8, arrivalDate);
+			addFlightDataPs.setString(9, arrivalTime);
+			addFlightDataPs.setString(10, seatsAvailable);
 			addFlightDataPs.executeUpdate();
-				
+			
+			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+			alert.setContentText("Your Reservation has been made");
+			alert.show();
 
 			} catch (SQLException e) {
 					
