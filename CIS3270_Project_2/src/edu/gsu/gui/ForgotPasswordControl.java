@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class ForgotPasswordControl implements Initializable{
@@ -27,9 +28,15 @@ public class ForgotPasswordControl implements Initializable{
 	private Button button_resetyourpassword;
 	@FXML
 	private Button button_goback;
-
+    @FXML
+    private Button button_securityQuestion;
+	@FXML
+	private Label label_securityQuestion;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+//		label_securityQuestion.setText(displayQuestion);
 		
 		button_goback.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
@@ -46,6 +53,17 @@ public class ForgotPasswordControl implements Initializable{
 			public void handle(ActionEvent event) {
 
 				resetPassword(event, tf_username.getText(), tf_securityanswer.getText(), tf_newpassword.getText());
+					
+				}
+
+		});
+		
+		button_securityQuestion.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+
+				displayQuestion(event, tf_username.getText());
+
 					
 				}
 
@@ -96,5 +114,42 @@ public class ForgotPasswordControl implements Initializable{
 				e.printStackTrace();
 			}
 	}
+	
+	private void displayQuestion(ActionEvent Event, String userName) {
 
+		Connection questionCN = null;
+		PreparedStatement questionPS = null;
+		ResultSet questionRS = null;
+		
+		try {
+			questionCN = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
+					+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
+					+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+			
+			questionPS = questionCN.prepareStatement("SELECT securityQuestion FROM CustomerData WHERE userName = ? ");
+			questionPS.setString(1, userName);
+			questionRS = questionPS.executeQuery();
+			
+			if (questionRS.next()) {
+				
+				String question = questionRS.getString("securityQuestion");
+				label_securityQuestion.setText(question);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} catch (NullPointerException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+
+		
+	}
+	
 }

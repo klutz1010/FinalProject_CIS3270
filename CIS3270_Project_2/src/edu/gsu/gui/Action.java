@@ -78,7 +78,7 @@ public class Action {
 	
 	public static void signUp(ActionEvent event, String userName, String userPassword, String firstName,
 												String lastName, String address, String state, String zip,
-												String emailAddress, String ssn, String securityAnswer) {
+												String emailAddress, String ssn, String securityQuestion, String securityAnswer) {
 		
 		Connection connection = null;
 		PreparedStatement psInsert = null;
@@ -105,8 +105,8 @@ public class Action {
 			} else {
 				//registering user (inserting data into database)
 				psInsert = connection.prepareStatement("INSERT INTO CustomerData "
-						+ "(userName, userPassword, firstName, lastName, address, state, zip, emailAddress, ssn, securityAnswer)"
-						+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+						+ "(userName, userPassword, firstName, lastName, address, state, zip, emailAddress, ssn, securityQuestion, securityAnswer)"
+						+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				
 				psInsert.setString(1, userName);
 				psInsert.setString(2, userPassword);
@@ -117,10 +117,15 @@ public class Action {
 				psInsert.setString(7, zip);
 				psInsert.setString(8, emailAddress);
 				psInsert.setString(9, ssn);
-				psInsert.setString(10, securityAnswer);
+				psInsert.setString(10, securityQuestion);
+				psInsert.setString(11, securityAnswer);
 				psInsert.executeUpdate();
 				
-				changeScene(event, "CustomerPage.FXML", "Welcome ", userName + "!");
+				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+				alert.setContentText("Registered!!! going back to main page");
+				alert.show();
+				
+				changeScene(event, "Main.FXML", "Welcome ", null);
 				
 			}
 			

@@ -14,7 +14,7 @@ public class Flight {
 	private int flightCapacity;
 	private int seatsAvailable;
 	private int isFull;
-	
+	//
 	public Flight(int id, String airlineName, String flightNumber, String originCity, String destinationCity,
 			String departureDate, String departureTime, String arrivalDate, String arrivalTime, int flightCapacity,
 			int seatsAvailable, int isFull) {
@@ -132,10 +132,7 @@ public class Flight {
 		this.isFull = isFull;
 	}
 
-
 	
-
-		
 }
 	
 

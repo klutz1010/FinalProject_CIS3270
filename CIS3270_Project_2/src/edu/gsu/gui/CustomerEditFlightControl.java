@@ -84,7 +84,7 @@ public class CustomerEditFlightControl implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		label_userName.setText("Welcome " +data.getUserName());
+		label_userName.setText("Welcome " + data.getUserName());
 
 		showReservations();
 		
