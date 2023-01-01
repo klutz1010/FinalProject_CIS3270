@@ -67,7 +67,7 @@
                </font>
             </Label>
             <TextField fx:id="tf_state" layoutX="106.0" layoutY="389.0" prefHeight="25.0" prefWidth="124.0" />
-            <Label layoutX="262.0" layoutY="126.0" text="Zip Code *">
+            <Label layoutX="243.0" layoutY="126.0" text="Zip Code *">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -77,30 +77,30 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="262.0" layoutY="226.0" prefHeight="30.0" prefWidth="144.0" text="Social Security # *">
+            <Label layoutX="245.0" layoutY="226.0" prefHeight="30.0" prefWidth="144.0" text="Social Security # *">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="265.0" layoutY="278.0" text="Security Question *">
+            <Label layoutX="245.0" layoutY="278.0" text="Security Question *">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="262.0" layoutY="326.0" text="Security Answer *">
+            <Label layoutX="251.0" layoutY="326.0" text="Security Answer *">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_zipcode" layoutX="423.0" layoutY="124.0" prefHeight="25.0" prefWidth="99.0" />
-            <Label layoutX="265.0" layoutY="180.0" text="Email Address *">
+            <TextField fx:id="tf_zipcode" layoutX="374.0" layoutY="124.0" prefHeight="25.0" prefWidth="99.0" />
+            <Label layoutX="243.0" layoutY="180.0" text="Email Address *">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_emailaddress" layoutX="423.0" layoutY="178.0" prefHeight="25.0" prefWidth="137.0" />
-            <TextField fx:id="tf_socialsecurity" layoutX="427.0" layoutY="229.0" prefHeight="25.0" prefWidth="133.0" />
-            <TextField fx:id="tf_securityanswer" layoutX="425.0" layoutY="327.0" prefHeight="25.0" prefWidth="133.0" />
+            <TextField fx:id="tf_emailaddress" layoutX="374.0" layoutY="178.0" prefHeight="25.0" prefWidth="137.0" />
+            <TextField fx:id="tf_socialsecurity" layoutX="407.0" layoutY="229.0" prefHeight="25.0" prefWidth="133.0" />
+            <TextField fx:id="tf_securityanswer" layoutX="409.0" layoutY="327.0" prefHeight="25.0" prefWidth="133.0" />
             <Button fx:id="button_signup" layoutX="225.0" layoutY="446.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: white;" text="Sign Up">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -122,8 +122,8 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button fx:id="button_mainpage" layoutX="435.0" layoutY="549.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back to Main Page" textFill="#005eff" underline="true" />
-            <Label layoutX="307.0" layoutY="552.0" text="Already a member?">
+            <Button fx:id="button_mainpage" layoutX="407.0" layoutY="550.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back to Main Page" textFill="#005eff" underline="true" />
+            <Label layoutX="280.0" layoutY="552.0" text="Already a member?">
                <font>
                   <Font size="14.0" />
                </font>
@@ -133,7 +133,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="combobox_securityQuestion" layoutX="419.0" layoutY="278.0" prefHeight="25.0" prefWidth="165.0" />
+            <ComboBox fx:id="combobox_securityQuestion" layoutX="393.0" layoutY="278.0" prefHeight="25.0" prefWidth="165.0" />
             <Text layoutX="228.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" * = Required Field" wrappingWidth="124.0" />
          </children>
       </AnchorPane>
