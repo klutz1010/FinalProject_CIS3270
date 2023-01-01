@@ -24,6 +24,9 @@ public class CustomerEditFlightControl implements Initializable{
 
     @FXML
     private Button button_cancelFlight;
+    
+    @FXML
+    private Button button_bookAFlight;
 
     @FXML
     private Button button_goback;
@@ -84,7 +87,7 @@ public class CustomerEditFlightControl implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		label_userName.setText("Welcome " + data.getUserName());
+		//label_userName.setText("Welcome " + data.getUserName());
 
 		showReservations();
 		
@@ -94,7 +97,7 @@ public class CustomerEditFlightControl implements Initializable{
 			public void handle(ActionEvent event) {
 				
 				Customer.cancelFlight(event, Integer.parseInt(tf_id.getText()));
-				
+			
 				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 				alert.setContentText("The Flight Reservation has been cancelled.");
 				alert.show();
@@ -115,13 +118,24 @@ public class CustomerEditFlightControl implements Initializable{
 		
 		});
 		
+		button_bookAFlight.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				
+				
+				Action.changeScene(event, "SearchFlight.fxml", "Book a Flight", null);
+				
+			}
+		
+	});
+		
 	}
 	
-	public void setUserInformation(String userName) {
+	/*public void setUserInformation(String userName) {
 		
 		label_userName.setText(("Welcome" + this.label_userName + " !"));
 			
-	}
+	}*/
 	
 	public ObservableList<Reservation> getReservationList(){
 		
