@@ -2,8 +2,10 @@ package edu.gsu.gui;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 //import javax.swing.JTextField;
@@ -121,7 +123,7 @@ public class SearchFlightControl implements Initializable{
     private TextField tf_seatsAvailable;
     
     //passing  customer user name value
-    Customer data = Customer.getStoredUserName();
+    static Customer data = Customer.getStoredUserName();
     
     ObservableList<Flight> flightList = FXCollections.observableArrayList();
     Connection conn;
@@ -159,12 +161,26 @@ public class SearchFlightControl implements Initializable{
 		button_bookFlight.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent event) {
-
-				 Customer.bookFlight(event, data.getUserName(), tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
-						 tf_destinationCity.getText() , tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
-						 tf_arrivalTime.getText(), tf_seatsAvailable.getText()); 
-				 
 				
+				try {
+					if(duplicateFlightCheck(tf_flightNumber.getText()) == true) {
+
+					 Customer.bookFlight(event, data.getUserName(), tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+							 tf_destinationCity.getText() , tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
+							 tf_arrivalTime.getText(), tf_seatsAvailable.getText()); 
+					 
+					} else {
+						
+						Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setContentText("Same Flight already exits");
+						alert.show();
+						
+						
+					}
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
 					
 			}
 			
@@ -309,5 +325,50 @@ public class SearchFlightControl implements Initializable{
 	    table_flightTable.setItems(sortedData);
 	
 	    }
+	    
+static boolean duplicateFlightCheck(String flightNumber) throws SQLException {
+			
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			ResultSet resultSet = null;
+			
+			try {
+				connection = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
+						+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
+						+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+				
+				preparedStatement = connection.prepareStatement("SELECT * FROM Reservation "
+						+ "WHERE flightNumber = ? AND userName = '" + data.getUserName() + "'");
+						
+				preparedStatement.setString(1, flightNumber);
+				
+				resultSet = preparedStatement.executeQuery();
+				
+				
+				if (resultSet.isBeforeFirst()) {
+					
+//					System.out.println("You have a duplicate flight");
+					
+					return false;
+					
+				} else {
+					
+//					System.out.println("You don't have any duplicate flight");
+					
+					return true;
+					
+				}
+
+			} catch (Exception ex) {
+				
+				ex.printStackTrace();	
+				
+			} finally {
+				
+				connection.close();
+			}
+			return false;
+
+		}
 	    
 }
