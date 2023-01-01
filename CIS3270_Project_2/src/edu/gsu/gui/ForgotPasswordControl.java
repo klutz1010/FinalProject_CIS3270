@@ -89,9 +89,8 @@ public class ForgotPasswordControl implements Initializable{
 			
 			if (resetRS.isBeforeFirst()) {
 				
-				System.out.println("Your Asnwer Matches!");
 				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-				alert.setContentText("Your Asnwer Matches!, Your Password has been Reset");
+				alert.setContentText("Your Answer Matches!, Your Password has been Reset");
 				alert.show();
 				
 				newpwPS = resetCN.prepareStatement("UPDATE customerData SET userPassword = ? WHERE userName = ?");
@@ -100,10 +99,9 @@ public class ForgotPasswordControl implements Initializable{
 				newpwPS.executeUpdate();
 				
 			} else {
-				
-				System.out.println("Your Asnwer does not Match!");
+
 				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("Your Asnwer does not Match!");
+				alert.setContentText("Your Answer does not Match!");
 				alert.show();
 				
 			}
