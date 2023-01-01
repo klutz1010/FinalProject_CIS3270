@@ -19,14 +19,14 @@
                      <children>
                         <ImageView cache="true" fitHeight="673.0" fitWidth="1069.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../Downloads/custPic3.jpg" />
+                              <Image url="@custPic3.jpg" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
                </children>
             </AnchorPane>
-            <Label fx:id="label_hello" layoutX="38.0" layoutY="31.0" text="Hello Traveler!" textFill="#257172">
+            <Label fx:id="label_hello" layoutX="38.0" layoutY="31.0" text="Hello Traveler!" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="48.0" />
                </font>
@@ -41,7 +41,7 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="button_logout" layoutX="623.0" layoutY="426.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="125.0" style="-fx-background-color: #194790;" text="Log Out" underline="true">
+            <Button fx:id="button_logout" layoutX="623.0" layoutY="426.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="125.0" style="-fx-background-color: #194790;" text="Log Out" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
