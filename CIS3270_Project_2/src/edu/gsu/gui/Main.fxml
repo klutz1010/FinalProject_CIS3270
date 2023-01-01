@@ -11,83 +11,83 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.MainControl">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="399.0">
+      <AnchorPane prefHeight="636.0" prefWidth="779.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="592.0" fitWidth="548.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="752.0" fitWidth="1028.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@world.png" />
+                  <Image url="@../../../../../../../Downloads/travelPhoto.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="319.0" layoutY="4.0" prefHeight="600.0" prefWidth="480.0" style="-fx-background-color: transparent;">
+            <AnchorPane layoutX="64.0" layoutY="105.0" prefHeight="519.0" prefWidth="764.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="148.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="14.0">
                <children>
-                  <ImageView fitHeight="76.0" fitWidth="62.0" layoutX="387.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="76.0" fitWidth="62.0" layoutX="66.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="162.0" AnchorPane.rightAnchor="878.0">
                      <image>
                         <Image url="@airplane.png" />
                      </image>
                   </ImageView>
-                  <Label contentDisplay="CENTER" layoutX="355.0" layoutY="49.0" text="User Name">
+                  <Label contentDisplay="CENTER" layoutX="570.0" layoutY="49.0" text="User Name">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_username" alignment="CENTER" layoutX="179.0" layoutY="76.0" prefHeight="25.0" prefWidth="274.0" promptText="User Name" />
-                  <Label contentDisplay="CENTER" layoutX="368.0" layoutY="101.0" text="Password">
+                  <TextField fx:id="tf_username" alignment="CENTER" layoutX="473.0" layoutY="76.0" prefHeight="25.0" prefWidth="274.0" promptText="User Name" />
+                  <Label contentDisplay="CENTER" layoutX="570.0" layoutY="114.0" text="Password">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tf_password" alignment="CENTER" layoutX="179.0" layoutY="128.0" prefHeight="25.0" prefWidth="274.0" promptText="Password" />
-                  <Button fx:id="button_login" layoutX="351.0" layoutY="165.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" style="-fx-cursor: hand;" text="Login">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Label contentDisplay="CENTER" layoutX="252.0" layoutY="241.0" text="Not a member?">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="button_signup" layoutX="349.0" layoutY="231.0" mnemonicParsing="false" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Sign Up" textFill="#f54a4a">
+                  <TextField fx:id="tf_password" alignment="CENTER" layoutX="466.0" layoutY="153.0" prefHeight="25.0" prefWidth="274.0" promptText="Password" />
+                  <Button fx:id="button_login" layoutX="552.0" layoutY="193.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" style="-fx-cursor: hand; -fx-background-color: #2ec3c0;" text="Login" textFill="#000000fc">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="243.0" layoutY="280.0" text="Forgot Password?">
+                  <Label contentDisplay="CENTER" layoutX="538.0" layoutY="281.0" text="Not a member?">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Button fx:id="button_resetpassword" layoutX="339.0" layoutY="277.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Reset Password" textFill="#636ff7">
+                  <Button fx:id="button_signup" layoutX="634.0" layoutY="273.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Sign Up" textFill="#66ccff">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Label contentDisplay="CENTER" layoutX="532.0" layoutY="252.0" text="Forgot Password?">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="button_resetpassword" layoutX="643.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Reset Password" textFill="#66ccff">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="460.0" text="CIS 3270">
+                  <Label contentDisplay="CENTER" layoutX="427.0" layoutY="477.0" text="CIS 3270">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="307.0" layoutY="495.0" text="Flight Reservation System">
+                  <Label contentDisplay="CENTER" layoutX="35.0" layoutY="385.0" text="Flight Reservation System" textFill="#22c5d3">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="393.0" layoutY="514.0" text="Hyung Joo">
+                  <Label contentDisplay="CENTER" layoutX="35.0" layoutY="415.0" text="Hyung Joo" textFill="#22c5d3">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Button fx:id="button_adminlogin" layoutX="394.0" layoutY="576.0" mnemonicParsing="false" opacity="0.51" prefHeight="19.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Admin Login">
+                  <Button fx:id="button_adminlogin" layoutX="554.0" layoutY="307.0" mnemonicParsing="false" opacity="0.51" prefHeight="49.0" prefWidth="148.0" style="-fx-background-color: transparent;" text="Admin Login" textFill="#1ac1d9">
                      <font>
-                        <Font size="10.0" />
+                        <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="533.0" text="Saeb Abu Rayya">
+                  <Label contentDisplay="CENTER" layoutX="35.0" layoutY="434.0" text="Samaria Harvey" textFill="#22c5d3">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="363.0" layoutY="552.0" text="Samaria Harvey">
+                  <Label contentDisplay="CENTER" layoutX="33.0" layoutY="451.0" text="Saeb Abu Rayya" textFill="#22c5d3">
                      <font>
                         <Font size="13.0" />
                      </font>
