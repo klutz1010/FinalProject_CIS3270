@@ -131,12 +131,6 @@ public class CustomerEditFlightControl implements Initializable{
 		
 	}
 	
-	/*public void setUserInformation(String userName) {
-		
-		label_userName.setText(("Welcome" + this.label_userName + " !"));
-			
-	}*/
-	
 	public ObservableList<Reservation> getReservationList(){
 		
     	ObservableList<Reservation> reservationList = FXCollections.observableArrayList();
