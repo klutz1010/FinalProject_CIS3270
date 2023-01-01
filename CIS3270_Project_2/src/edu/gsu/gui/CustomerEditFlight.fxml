@@ -5,8 +5,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -46,11 +44,6 @@
                         <Font name="System Bold Italic" size="21.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="505.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Icon_Delete.png" />
-                     </image>
-                  </ImageView>
                   <Button fx:id="button_goback" alignment="CENTER_RIGHT" layoutX="600.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: white;" text="Main Menu">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -72,12 +65,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="673.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Icon_Back.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="button_bookAFlight" layoutX="405.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="127.0" style="-fx-background-color: white;" text="Book Flights">
+                  <Button fx:id="button_bookAFlight" layoutX="404.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="127.0" style="-fx-background-color: white;" text="Book Flights">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

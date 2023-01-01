@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+//import javax.swing.JTextField;
 import edu.gsu.common.Flight;
 import edu.gsu.common.Reservation;
 import edu.gsu.common.Customer;
@@ -27,12 +28,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class SearchFlightControl implements Initializable{
-	 @FXML
-	    private Text bookedTxt;
 
-    @FXML
-    private Button button_reserve;
+public class SearchFlightControl implements Initializable{
+	@FXML
+	private Text bookedTxt;
+	
+	@FXML
+	private Button button_bookAFlight;
 
     @FXML
     private Button button_bookFlight;
@@ -83,7 +85,7 @@ public class SearchFlightControl implements Initializable{
     private TextField tf_arrivalDate;
 
     @FXML
-    private TextField tf_arrivalTime;
+    private TextField tf_arrivalTime; 
 
     @FXML
     private TextField tf_date;
@@ -98,10 +100,10 @@ public class SearchFlightControl implements Initializable{
     private TextField tf_destinationCity;
 
     @FXML
-    private TextField tf_flightNumber;
+    private TextField tf_flightNumber; 
 
     @FXML
-    private TextField tf_id;
+    private TextField tf_id; 
 
     @FXML
     private TextField tf_originCity;
@@ -113,7 +115,11 @@ public class SearchFlightControl implements Initializable{
     private TextField tf_destination;
     
     @FXML
+    private Button yourFlightButton;
+
+    @FXML
     private TextField tf_seatsAvailable;
+    
     //passing  customer user name value
     Customer data = Customer.getStoredUserName();
     
@@ -138,8 +144,8 @@ public class SearchFlightControl implements Initializable{
     	tf_arrivalTime.setText(flights.getArrivalTime());
     	tf_seatsAvailable.setText("" + flights.getSeatsAvailable());
     	
-	}
     	
+	} 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -148,42 +154,44 @@ public class SearchFlightControl implements Initializable{
 		
 		showCustomerFlights();
 	
-		//search function that shows filtered table
-		//(s.h) search button needs to go to pop up message that confirms flight
+		
+		//(s.h) book flight from search flight page
 		button_bookFlight.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent event) {
+
+				 Customer.bookFlight(event, data.getUserName(), tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
+						 tf_destinationCity.getText() , tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
+						 tf_arrivalTime.getText(), tf_seatsAvailable.getText()); 
+				 
 				
-				Action.changeScene(event, "CustomerPage.fxml", "Welcome Back", null );
-				
+					
 			}
 			
 		});
 		
 		// going back to customer page
 		button_goback.setOnAction(new EventHandler<ActionEvent>(){
+			//@Override
+			public void handle(ActionEvent event) {
+				
+				Action.changeScene(event, "CustomerPage.fxml", "Welcome", null );
+				
+			}
+	
+			
+		});
+		yourFlightButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				
-				Action.changeScene(event, "CustomerPage.fxml", "Welcome Back", null );
+				
+				Action.changeScene(event, "CustomerEditFlight.fxml", "Your Flight", null);
 				
 			}
-			
-		});
 		
-		// booking a flight
-		button_reserve.setOnAction(new EventHandler<ActionEvent>(){
-			@Override
-			public void handle(ActionEvent event) {
-				
-				Customer.addFlight(event, data.getUserName(), tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
-						tf_destinationCity.getText(), tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
-						tf_arrivalTime.getText(), tf_id.getText());
-				
-			}
-			
-		});
-
+	});
+		
 	}
 	
 	 public ObservableList<Flight> getCustomerFlightList(){
@@ -239,33 +247,10 @@ public class SearchFlightControl implements Initializable{
 	    
 	    //displays all or current record if no matches
 	    FilteredList < Flight > filteredData = new FilteredList<>( list, b -> true);
-	    
-	   /* tf_originCity.textProperty().addListener((observable, oldValue, newValue) -> {
-	    	filteredData.setPredicate(Flight -> {
-	    		
-	    		if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
-	    			return true;
-	    		}
-	    		
-	    		String searchKeyword = newValue.toLowerCase();
-	    		
-	    		if(Flight.getDepartureDate().toLowerCase().indexOf(searchKeyword) > -1) {
-	    			return true;
-	    		}
-	    		else if(Flight.getOriginCity().toLowerCase().indexOf(searchKeyword) > -1) {
-	    			return true;
-	    		}
-	    		else if(Flight.getDestinationCity().toLowerCase().indexOf(searchKeyword) > -1) {
-	    			return true;
-	    		}
-	    		else
-	    			return false;
-	    		
-	    	});
-	 
-	    });*/
+	   
 	    tf_origin.textProperty().addListener((observable, oldValue, newValue) -> {
 	    	filteredData.setPredicate(Flight -> {
+
 	    		
 	    		if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
 	    			return true;
@@ -316,6 +301,7 @@ public class SearchFlightControl implements Initializable{
 	    	});
 	    });
 	    
+	    
 	    SortedList <Flight > sortedData = new SortedList <> (filteredData);
 	    
 	    //Connect sorted data with table view
@@ -323,4 +309,5 @@ public class SearchFlightControl implements Initializable{
 	    table_flightTable.setItems(sortedData);
 	
 	    }
+	    
 }

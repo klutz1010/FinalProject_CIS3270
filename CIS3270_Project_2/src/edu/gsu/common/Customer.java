@@ -120,50 +120,50 @@ public class Customer {
 		this.securityAnswer = securityAnswer;
 	}
 
-	public static void addFlight(ActionEvent event, String userName, String airlineName, String flightNumber, String originCity, String destinationCity,
+	public static void bookFlight(ActionEvent event, String userName, String airlineName, String flightNumber, String originCity, String destinationCity,
 													String departureDate, String departureTime, String arrivalDate, String arrivalTime, String seatsAvailable) {
 		
-		Connection addFlightDataConn = null;
-		PreparedStatement addFlightDataPs = null;
-		ResultSet addFlightDataRs = null;
+		Connection bookFlightDataConn = null;
+		PreparedStatement bookFlightDataPs = null;
+		ResultSet bookFlightDataRs = null;
 		
 		try {
-			addFlightDataConn = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
+			bookFlightDataConn = DriverManager.getConnection("jdbc:sqlserver://cis3270finalproject.database.windows.net:1433;"
 								+ "database=Project;user=cis3270admin@cis3270finalproject;password={Cis3270finalproject};"
 								+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 			
 			
-			addFlightDataPs = addFlightDataConn.prepareStatement("INSERT INTO  Reservation "
+			bookFlightDataPs = bookFlightDataConn.prepareStatement("INSERT INTO  Reservation "
 					+ "(userName, airlineName, flightNumber, originCity, destinationCity, departureDate, departureTime, "
 					+ "arrivalDate, arrivalTime, seatsAvailable)"
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				
-			addFlightDataPs.setString(1, userName);
-			addFlightDataPs.setString(2, airlineName);
-			addFlightDataPs.setString(3, flightNumber);
-			addFlightDataPs.setString(4, originCity);
-			addFlightDataPs.setString(5, destinationCity);
-			addFlightDataPs.setString(6, departureDate);
-			addFlightDataPs.setString(7, departureTime);
-			addFlightDataPs.setString(8, arrivalDate);
-			addFlightDataPs.setString(9, arrivalTime);
-			addFlightDataPs.setString(10, seatsAvailable);
-			addFlightDataPs.executeUpdate();
+			bookFlightDataPs.setString(1, userName);
+			bookFlightDataPs.setString(2, airlineName);
+			bookFlightDataPs.setString(3, flightNumber);
+			bookFlightDataPs.setString(4, originCity);
+			bookFlightDataPs.setString(5, destinationCity);
+			bookFlightDataPs.setString(6, departureDate);
+			bookFlightDataPs.setString(7, departureTime);
+			bookFlightDataPs.setString(8, arrivalDate);
+			bookFlightDataPs.setString(9, arrivalTime);
+			bookFlightDataPs.setString(10, seatsAvailable);
+			bookFlightDataPs.executeUpdate();
 			
 			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-			alert.setContentText("Your Reservation has been made");
+			alert.setContentText("Flight Booked Successfully! ");
 			alert.show();
-
+			
 			} catch (SQLException e) {
 					
 				e.printStackTrace();
 					
 			} finally {
 				
-				if (addFlightDataRs != null) {
+				if (bookFlightDataRs != null) {
 					
 					try {
-						addFlightDataRs.close();
+						bookFlightDataRs.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -171,10 +171,10 @@ public class Customer {
 					
 				}
 				
-				if (addFlightDataPs != null) {
+				if (bookFlightDataPs != null) {
 					try {
 						
-						addFlightDataPs.close();
+						bookFlightDataPs.close();
 						
 					} catch (SQLException e) {
 						
@@ -184,10 +184,10 @@ public class Customer {
 					
 				}
 				
-				if (addFlightDataPs != null) {
+				if (bookFlightDataPs != null) {
 					
 					try {
-						addFlightDataPs.close();
+						bookFlightDataPs.close();
 						
 					} catch (SQLException e) {
 				
@@ -195,11 +195,11 @@ public class Customer {
 						
 					}
 					
-				if (addFlightDataConn != null) {
+				if (bookFlightDataConn != null) {
 					
 					try {
 						
-						addFlightDataConn.close();
+						bookFlightDataConn.close();
 						
 					} catch (SQLException e) {
 						
@@ -274,6 +274,7 @@ public class Customer {
 						
 					}
 					
+					
 				if (cancelFlightDataConn != null) {
 					
 					try {
@@ -292,4 +293,5 @@ public class Customer {
 		}
 		
 	}
+	
 }
