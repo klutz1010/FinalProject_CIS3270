@@ -61,7 +61,7 @@ public class CustomerPageControl implements Initializable {
 			
 		});
 		
-		label_hello.setText("Welcome" + data.getUserName() + " !");
+		label_hello.setText("Welcome " + data.getUserName() + " !");
 		
 	}
 	
