@@ -164,10 +164,19 @@ public class SearchFlightControl implements Initializable{
 				
 				try {
 					if(duplicateFlightCheck(tf_flightNumber.getText()) == true) {
+						
+						if(Integer.parseInt(tf_seatsAvailable.getText()) != 0) {
 
 					 Customer.bookFlight(event, data.getUserName(), tf_airlineName.getText(), tf_flightNumber.getText(), tf_originCity.getText(),
 							 tf_destinationCity.getText() , tf_departureDate.getText(), tf_departureTime.getText(), tf_arrivalDate.getText(),
-							 tf_arrivalTime.getText(), tf_seatsAvailable.getText()); 
+							 tf_arrivalTime.getText(), tf_seatsAvailable.getText());
+						} else {
+							
+							Alert alert = new Alert(Alert.AlertType.ERROR);
+							alert.setContentText("No Seats Available");
+							alert.show();
+							
+						}
 					 
 					} else {
 						
@@ -326,7 +335,7 @@ public class SearchFlightControl implements Initializable{
 	
 	    }
 	    
-	    //a method that puts the data in each column by column's name, and Display flight data on JavaFX table
+	    //a method that check if there's any duplicate flight in reservation db table.
     	static boolean duplicateFlightCheck(String flightNumber) throws SQLException {
 			
 			Connection connection = null;
@@ -346,16 +355,12 @@ public class SearchFlightControl implements Initializable{
 				resultSet = preparedStatement.executeQuery();
 				
 				
-				if (resultSet.isBeforeFirst()) {
-					
-//					System.out.println("You have a duplicate flight");
+				if (resultSet.isBeforeFirst()) {					
 					
 					return false;
 					
 				} else {
-					
-//					System.out.println("You don't have any duplicate flight");
-					
+									
 					return true;
 					
 				}
@@ -368,6 +373,7 @@ public class SearchFlightControl implements Initializable{
 				
 				connection.close();
 			}
+			
 			return false;
 
 		}
