@@ -181,7 +181,7 @@ public class SearchFlightControl implements Initializable{
 					} else {
 						
 						Alert alert = new Alert(Alert.AlertType.ERROR);
-						alert.setContentText("Same Flight already exits");
+						alert.setContentText("Flight Booked Already!");
 						alert.show();
 						
 						
