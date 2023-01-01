@@ -7,12 +7,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.SearchFlightControl">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane focusTraversable="true" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3084cd;">
          <children>
             <TableView fx:id="table_flightTable" onMouseClicked="#handleMouseAction" prefHeight="464.0" prefWidth="800.0">
               <columns>
@@ -46,79 +48,87 @@
                </font>
             </Label>
             <TextField fx:id="tf_destination" alignment="CENTER" layoutX="154.0" layoutY="537.0" promptText="Destination City" />
-            <Label layoutX="502.0" layoutY="499.0" text="ID#">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tf_id" alignment="CENTER" layoutX="545.0" layoutY="498.0" prefHeight="25.0" prefWidth="143.0" promptText="Input ID" />
-            <Label layoutX="494.0" layoutY="471.0" text="&quot;Make A Reservation&quot;">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="button_bookFlight" layoutX="340.0" layoutY="486.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="143.0" style="-fx-background-color: #075eae;" text="Book Flight" textFill="#1c1d1e">
+            <TextField fx:id="tf_id" alignment="CENTER" layoutX="531.0" layoutY="550.0" opacity="0.0" prefHeight="25.0" prefWidth="143.0" promptText="Input ID" />
+            <Button fx:id="button_bookFlight" layoutX="370.0" layoutY="494.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="149.0" style="-fx-background-color: white;" text="Book Flight">
                <font>
                   <Font name="System Bold Italic" size="21.0" />
                </font>
-            </Button>
-            <Button fx:id="button_reserve" layoutX="545.0" layoutY="528.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="143.0" text="Reserve">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
+               <textFill>
+                  <LinearGradient endX="0.7440758293838863" endY="0.7914691943127963" startX="0.7298578199052134" startY="0.24170616113744078">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.18579435348510742" green="0.5764579176902771" blue="0.8026315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.01315789483487606" green="0.05482456088066101" blue="0.07894736528396606" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
             <Label fx:id="lb_userName" layoutX="8.0" layoutY="576.0" text="userName">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="button_goback" layoutX="726.0" layoutY="564.0" mnemonicParsing="false" text="Go Back" />
-            <Text fx:id="bookedTxt" layoutX="340.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bookedMessage" wrappingWidth="143.0" />
-            <TextField fx:id="tf_airlineName" layoutX="72.0" layoutY="574.0" prefHeight="25.0" prefWidth="77.0" promptText="tf_airlineName">
+            <Button fx:id="button_goback" layoutX="605.0" layoutY="525.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="178.0" style="-fx-background-color: white;" text="Previous Page" textFill="#456e7c">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font></Button>
+            <TextField fx:id="tf_airlineName" cacheShape="false" layoutX="72.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="77.0" promptText="tf_airlineName">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_flightNumber" layoutX="149.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_flightNumber">
+            <TextField fx:id="tf_flightNumber" layoutX="149.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_flightNumber">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_originCity" layoutX="219.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_originCity">
+            <TextField fx:id="tf_originCity" layoutX="219.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_originCity">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_destinationCity" layoutX="289.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_destinationCity">
+            <TextField fx:id="tf_destinationCity" layoutX="289.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_destinationCity">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_departureDate" layoutX="359.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_departureDate">
+            <TextField fx:id="tf_departureDate" layoutX="359.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_departureDate">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_departureTime" layoutX="429.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_departureTime">
+            <TextField fx:id="tf_departureTime" layoutX="429.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_departureTime">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_arrivalDate" layoutX="497.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_arrivalDate">
+            <TextField fx:id="tf_arrivalDate" layoutX="497.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_arrivalDate">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_arrivalTime" layoutX="567.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_arrivalTime">
+            <TextField fx:id="tf_arrivalTime" layoutX="567.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_arrivalTime">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
-            <TextField fx:id="tf_seatsAvailable" layoutX="637.0" layoutY="574.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_seatsAvailable">
+            <TextField fx:id="tf_seatsAvailable" layoutX="637.0" layoutY="574.0" opacity="0.0" prefHeight="25.0" prefWidth="70.0" promptText="tf_seatsAvailable">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
+            <Button fx:id="yourFlightButton" layoutX="603.0" layoutY="468.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="178.0" style="-fx-background-color: white;" text="View Your Flights" textFill="#456e7c">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

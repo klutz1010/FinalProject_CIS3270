@@ -7,26 +7,26 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.AdminControl">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="665.0" layoutX="100.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@admin.png" />
-               </image>
+            <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="1.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
                <effect>
                   <ColorAdjust brightness="1.0" />
                </effect>
             </ImageView>
-            <Label layoutX="244.0" layoutY="69.0" text="&quot;Hello Admin&quot;" textFill="WHITE">
+            <Label layoutX="181.0" layoutY="70.0" prefHeight="138.0" prefWidth="439.0" text="Admin Portal" textFill="WHITE">
                <font>
-                  <Font name="Rockwell" size="48.0" />
+                  <Font name="Rockwell Bold Italic" size="64.0" />
                </font>
             </Label>
-            <Button fx:id="button_editflightdata" alignment="CENTER_RIGHT" layoutX="274.0" layoutY="275.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="263.0" text="Edit Flight Data">
+            <Button fx:id="button_editflightdata" alignment="CENTER_RIGHT" layoutX="245.0" layoutY="272.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="313.0" style="-fx-background-color: white;" text="Edit Flight Data      ">
                <font>
                   <Font name="Rockwell Bold" size="24.0" />
                </font>
@@ -37,18 +37,43 @@
                      </image>
                   </ImageView>
                </graphic>
+               <textFill>
+                  <LinearGradient endX="0.35071090047393366" endY="0.8672985781990521" startX="0.32701421800947866" startY="0.36018957345971564">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.13620857894420624" green="0.3736760914325714" blue="0.6842105388641357" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.1423611044883728" green="0.3144432306289673" blue="0.5394737124443054" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button fx:id="button_logout" alignment="CENTER_RIGHT" layoutX="619.0" layoutY="535.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="167.0" text="Log Out">
+            <Button fx:id="button_logout" alignment="CENTER_RIGHT" layoutX="637.0" layoutY="535.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="128.0" style="-fx-background-color: white;" text="Log Out">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Icon_LogOut.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+               <textFill>
+                  <LinearGradient endX="0.28909952606635075" endY="0.5829383886255923" startX="0.34123222748815163" startY="0.7772511848341233">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.13620857894420624" green="0.3736760914325714" blue="0.6842105388641357" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.1423611044883728" green="0.3144432306289673" blue="0.5394737124443054" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
          </children>
       </AnchorPane>

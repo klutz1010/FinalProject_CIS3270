@@ -10,30 +10,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gsu.gui.CustomerEditFlightControl">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;">
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #3084cd;">
          <children>
-            <Pane layoutX="15.0" layoutY="516.0" prefHeight="80.0" prefWidth="770.0" style="-fx-background-color: black;">
+            <Pane layoutX="-3.0" layoutY="509.0" prefHeight="90.0" prefWidth="808.0" style="-fx-background-color: #3084cd;">
                <children>
-                  <Label layoutX="307.0" layoutY="27.0" text="ID #" textFill="WHITE">
+                  <Button fx:id="button_cancelFlight" alignment="CENTER_RIGHT" layoutX="219.0" layoutY="18.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: white;" text="Cancel Flight">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
-                  </Label>
-                  <TextField fx:id="tf_id" alignment="CENTER" layoutX="346.0" layoutY="18.0" prefHeight="42.0" prefWidth="149.0" promptText="Your Flight ID #">
+                     <textFill>
+                        <LinearGradient endX="0.8578199052132701" endY="0.4123222748815165" startX="0.8578199052132702" startY="0.8909952606635072">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.019736841320991516" green="0.276973694562912" blue="0.3552631437778473" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.30671295523643494" green="0.5411062240600586" blue="0.6973684430122375" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill></Button>
+                  <Label fx:id="label_userName" layoutX="-2.0" layoutY="15.0" prefHeight="53.0" prefWidth="192.0" text=" Upcoming Flights" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font></TextField>
-                  <Button fx:id="button_cancelFlight" alignment="CENTER_RIGHT" layoutX="505.0" layoutY="18.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="155.0" text="Cancel Your Flight">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font></Button>
-                  <Label fx:id="label_userName" layoutX="14.0" layoutY="22.0" text="userName" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold Italic" size="24.0" />
+                        <Font name="System Bold Italic" size="21.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="505.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
@@ -41,24 +51,66 @@
                         <Image url="@Icon_Delete.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="button_goback" alignment="CENTER_RIGHT" layoutX="669.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="101.0" text="Go Back">
+                  <Button fx:id="button_goback" alignment="CENTER_RIGHT" layoutX="600.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: white;" text="Main Menu">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
+                     <textFill>
+                        <LinearGradient endX="0.8578199052132701" endY="0.4123222748815165" startX="0.8578199052132702" startY="0.8909952606635072">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.019736841320991516" green="0.276973694562912" blue="0.3552631437778473" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.30671295523643494" green="0.5411062240600586" blue="0.6973684430122375" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Button>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="673.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Icon_Back.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="button_bookAFlight" layoutX="405.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="127.0" style="-fx-background-color: white;" text="Book Flights">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.8578199052132701" endY="0.4123222748815165" startX="0.8578199052132702" startY="0.7867298578199053">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.019736841320991516" green="0.276973694562912" blue="0.3552631437778473" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.25882354378700256" green="0.5058823823928833" blue="0.6705882549285889" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <TextField fx:id="tf_id" alignment="CENTER" layoutX="288.0" layoutY="-2.0" opacity="0.0" prefHeight="42.0" prefWidth="149.0" promptText="Your Flight ID #">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
                </children>
             </Pane>
-            <TableView fx:id="table_viewFlight" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleMouseAction" prefHeight="495.0" prefWidth="770.0">
+            <TableView fx:id="table_viewFlight" layoutY="1.0" onMouseClicked="#handleMouseAction" prefHeight="508.0" prefWidth="805.0">
               <columns>
-                  <TableColumn fx:id="col_id" prefWidth="24.0" text="ID" />
-                  <TableColumn fx:id="col_userName" prefWidth="76.0" text="User Name" />
-                <TableColumn fx:id="col_airlineName" prefWidth="64.0" text="Airline" />
-                <TableColumn fx:id="col_flightNumber" prefWidth="62.0" text="Flight #" />
+                  <TableColumn fx:id="col_id" prefWidth="36.0" text="ID" />
+                  <TableColumn fx:id="col_userName" prefWidth="70.0" text="User Name" />
+                <TableColumn fx:id="col_airlineName" prefWidth="65.0" text="Airline" />
+                <TableColumn fx:id="col_flightNumber" prefWidth="55.0" text="Flight #" />
                   <TableColumn fx:id="col_originCity" prefWidth="82.0" text="Origin City" />
                   <TableColumn fx:id="col_destinationCity" prefWidth="77.0" text="Destination" />
                   <TableColumn fx:id="col_departureDate" prefWidth="84.0" text="Departure" />
