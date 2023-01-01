@@ -326,7 +326,8 @@ public class SearchFlightControl implements Initializable{
 	
 	    }
 	    
-static boolean duplicateFlightCheck(String flightNumber) throws SQLException {
+	    //a method that puts the data in each column by column's name, and Display flight data on JavaFX table
+    	static boolean duplicateFlightCheck(String flightNumber) throws SQLException {
 			
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
